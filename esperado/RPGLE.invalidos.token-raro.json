@@ -1,0 +1,30 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.invalidos.token-raro",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T23:15:33+00:00",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": [
+    {
+      "kind": "mensajes",
+      "name": "RNF0604",
+      "value": "The token is not valid; token is ignored.",
+      "severidad": 20,
+      "linea": 6,
+      "norm": "The token is not valid; token is ignored."
+    },
+    {
+      "kind": "mensajes",
+      "name": "RNF5359",
+      "value": "The EVAL operation is missing a result for the assignment.",
+      "severidad": 30,
+      "linea": 6,
+      "norm": "The EVAL operation is missing a result for the assignment."
+    }
+  ]
+}

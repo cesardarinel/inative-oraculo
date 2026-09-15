@@ -1,0 +1,113 @@
+{
+  "contrato_version": 1,
+  "fixture": "IND-001",
+  "ibmi": {
+    "host": "DEVSYS",
+    "release": "7.5",
+    "ccsid": 37
+  },
+  "observables": [
+    {
+      "kind": "display",
+      "name": "screen",
+      "value": {
+        "rows": 24,
+        "cols": 80,
+        "cursor": [
+          5,
+          10
+        ],
+        "fields": [
+          {
+            "name": "F1",
+            "row": 5,
+            "col": 10,
+            "len": 10,
+            "usage": "output",
+            "value": "",
+            "attrs": {
+              "color": "green",
+              "condition": "03",
+              "input": false,
+              "mdta": false,
+              "protected": true
+            }
+          },
+          {
+            "name": "F3",
+            "row": 7,
+            "col": 10,
+            "len": 10,
+            "usage": "output",
+            "value": "",
+            "attrs": {
+              "color": "green",
+              "input": false,
+              "mdta": false,
+              "protected": true
+            }
+          }
+        ],
+        "indicators": {
+          "03": true
+        },
+        "response_key": "ENTER"
+      }
+    },
+    {
+      "kind": "joblog",
+      "name": "mensajes",
+      "value": [
+        {
+          "id": "CPF1124",
+          "sev": 0,
+          "text": "Job JOB1 iniciado en el sistema simulado DEVSYS"
+        },
+        {
+          "id": "CPF0000",
+          "sev": 0,
+          "text": "Usuario DEVUSER; biblioteca actual MYAPP"
+        },
+        {
+          "id": "CPF0000",
+          "sev": 0,
+          "text": "Indicador *IN03 = true"
+        }
+      ]
+    },
+    {
+      "kind": "return",
+      "name": "rc",
+      "value": 0
+    },
+    {
+      "kind": "libl",
+      "name": "libl",
+      "value": [
+        "MYAPP",
+        "MYDATA",
+        "QGPL",
+        "QTEMP",
+        "QSYS"
+      ]
+    },
+    {
+      "kind": "objects",
+      "name": "objects",
+      "value": [
+        "MYAPP/HOLA *PGM",
+        "MYAPP/HOLADSPF *DSPF",
+        "MYAPP/INDTEST *DSPF",
+        "MYAPP/INDTESTPGM *PGM",
+        "MYAPP/LIBEDIT *DSPF",
+        "MYAPP/LIBEDITPGM *PGM",
+        "MYDATA/CUSTOMER *PF",
+        "QSYS/DSPLIB *DSPF",
+        "QSYS/WRKLIBPDM *DSPF",
+        "QTEMP/INDTESTPGM *PGM",
+        "QTEMP/LIBEDIT *PGM",
+        "QTEMP/TEMPWORK *PF"
+      ]
+    }
+  ]
+}

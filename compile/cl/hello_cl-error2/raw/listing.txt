@@ -1,0 +1,138 @@
+>> CL    qclsrc/hello_cl.cl -> c3s411/hello_cl
+system -s "CHGATR OBJ('qclsrc/hello_cl.cl') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qclsrc/hello_cl.cl') TOMBR('/QSYS.lib/c3s411.lib/QCLSRC.file/hello_cl.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QCLSRC) MBR(hello_cl) SRCTYPE(CL)"
+liblist -a c3s411; \
+system "CRTBNDCL PGM(c3s411/hello_cl) SRCFILE(c3s411/QCLSRC) SRCMBR(hello_cl) DBGVIEW(*SOURCE) REPLACE(*YES)"
+CPF0820:  Program HELLO_CL not created.
+  5770SS1 V7R5M0  220415                  Control Language         C3S411/HELLO_CL       PUB400 26-09-11 15:50:37         Page    1
+  Program . . . . . . . . . . . . . . . . . . . :   HELLO_CL
+    Library . . . . . . . . . . . . . . . . . . :     C3S411
+  Source file . . . . . . . . . . . . . . . . . :   QCLSRC
+    Library . . . . . . . . . . . . . . . . . . :     C3S411
+  Source member name  . . . . . . . . . . . . . :   HELLO_CL   26-09-11 15:50:37
+  Source printing options . . . . . . . . . . . :   *XREF  *NOSECLVL  *NOEVENTF  *NODOSLTLVL
+  User profile  . . . . . . . . . . . . . . . . :   *USER
+  Program logging . . . . . . . . . . . . . . . :   *JOB
+  Allow RTVCLSRC command  . . . . . . . . . . . :   *YES
+  Default activation group  . . . . . . . . . . :   *YES
+  Activation group  . . . . . . . . . . . . . . :
+  Replace program  . . . . . . . . . . . . . . . :   *YES
+  Target release  . . . . . . . . . . . . . . . :   V7R5M0
+  Authority . . . . . . . . . . . . . . . . . . :   *LIBCRTAUT
+  Sort sequence . . . . . . . . . . . . . . . . :   *HEX
+  Language identifier . . . . . . . . . . . . . :   *JOBRUN
+  Text  . . . . . . . . . . . . . . . . . . . . :
+  Optimization  . . . . . . . . . . . . . . . . :   *NONE
+  Debugging view  . . . . . . . . . . . . . . . :   *SOURCE
+  Debug encryption key  . . . . . . . . . . . . :   *NONE
+  Enable performance collection . . . . . . . . :   *PEP
+  Storage model . . . . . . . . . . . . . . . . :   *SNGLVL
+  Compiler  . . . . . . . . . . . . . . . . . . :   IBM Control Language Compiler
+                                       Control Language Source
+  SEQNBR  *...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+.  DATE
+     100-              /* ================================================== */
+     200-              /* Programa : HELLOCL                                 */
+     300-              /* Tipo     : CL ILE (*PGM) con DSPF 5250             */
+     400-              /* Desc     : Hola Mundo interactivo 5250 en CL.      */
+     500-              /*            Reusa la pantalla HELLO (formato FMT01) */
+     600-              /* ================================================== */
+     700-              PGM
+     800-
+     900-              DCLF       FILE(HELLO)
+          QUALIFIED FILE NAME - C3S411/HELLO
+             RECORD FORMAT NAME - FMT01
+               CL VARIABLE               TYPE     LENGTH     PRECISION     TEXT
+                &IN03                    *LGL        1                     Salir
+                &IN12                    *LGL        1                     Cancelar
+                &NOMBRE                  *CHAR      30
+                &SALUDO                  *CHAR      50
+                &USUARIO                 *CHAR      10
+                &FECHA                   *CHAR       8
+                &HORA                    *CHAR       8
+                &PROGLEN                 *CHAR      10
+    1000-
+    1100-              DCL        VAR(&USER)  TYPE(*CHAR) LEN(10)
+                                                    -=* http://pub400.com *=-
+  5770SS1 V7R5M0  220415                  Control Language         C3S411/HELLO_CL       PUB400 26-09-11 15:50:37         Page      2
+                                       Control Language Source
+  SEQNBR  *...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+.  DATE
+    1200-              DCL        VAR(&QDATE) TYPE(*CHAR) LEN(6)  /* Corregido a 6 */
+    1300-              DCL        VAR(&QTIME) TYPE(*CHAR) LEN(6)
+    1400-
+    1500-              MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(FIN))
+    1600-
+    1700-              RTVJOBA    USER(&USER)
+    1800-              MONMSG     MSGID(CPF0000)
+    1900-              RTVSYSVAL  SYSVAL(QDATE) VAR(&QDATE)
+ * CPD0043 30  Keyword VAR not valid for this command.
+    2000-              MONMSG     MSGID(CPF0000)
+    2100-              RTVSYSVAL  SYSVAL(QTIME) VAR(&QTIME)
+ * CPD0043 30  Keyword VAR not valid for this command.
+    2200-              MONMSG     MSGID(CPF0000)
+    2300-
+    2400-              CHGVAR     VAR(&PROGLEN) VALUE('CL')
+    2500-              CHGVAR     VAR(&USUARIO) VALUE(&USER)
+    2600-              CHGVAR     VAR(&FECHA)   VALUE(&QDATE)
+    2700-              CHGVAR     VAR(&HORA)    VALUE(&QTIME)
+    2800-              CHGVAR     VAR(&NOMBRE)  VALUE(' ')
+    2900-              CHGVAR     VAR(&SALUDO)  VALUE('Hola Mundo desde IBM i con CL!')
+    3000-
+    3100-  LOOP:       SNDRCVF    RCDFMT(FMT01)
+    3200-              MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(FIN))
+    3300-
+    3400-              /* EvaluaciÃ³n simplificada de variables *LGL */
+    3500-              IF         COND(&IN03) THEN(GOTO CMDLBL(FIN))
+    3600-              IF         COND(&IN12) THEN(GOTO CMDLBL(FIN))
+    3700-
+    3800-              IF         COND(&NOMBRE *EQ ' ') THEN(DO)
+    3900-                CHGVAR   VAR(&SALUDO) +
+    4000-                            VALUE('Hola Mundo! Ingresa tu nombre. (CL)')
+    4100-              ENDDO
+    4200-              ELSE       DO
+    4300-                /* Se usa *BCAT para forzar 1 espacio despues de la coma */
+    4400-                CHGVAR   VAR(&SALUDO) VALUE('Hola,' *BCAT &NOMBRE +
+    4500-                            *TCAT '! (CL)')
+    4600-              ENDDO
+    4700-
+    4800-              RTVJOBA    USER(&USER)
+    4900-              MONMSG     MSGID(CPF0000)
+    5000-              CHGVAR     VAR(&USUARIO) VALUE(&USER)
+    5100-
+    5200-              GOTO       CMDLBL(LOOP)  /* <-- Bucle restaurado */
+    5300-
+    5400-  FIN:        ENDPGM
+                                * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415                  Control Language         C3S411/HELLO_CL       PUB400 26-09-11 15:50:37         Page      3
+                                           Cross Reference
+  Declared Variables
+  Name                        Defined     Type            Length      References
+  &FECHA                         900      *CHAR               8          2600   3100
+  &HORA                          900      *CHAR               8          2700   3100
+  &IN03                          900      *LGL                1          3100   3500
+  &IN12                          900      *LGL                1          3100   3600
+  &NOMBRE                        900      *CHAR              30          2800   3100   3800   4400
+  &PROGLEN                       900      *CHAR              10          2400   3100
+  &QDATE                        1200      *CHAR               6          2600
+  &QTIME                        1300      *CHAR               6          2700
+  &SALUDO                        900      *CHAR              50          2900   3100   3900   4400
+  &USER                         1100      *CHAR              10          1700   2500   4800   5000
+  &USUARIO                       900      *CHAR              10          2500   3100   5000
+  Defined Labels
+  Label            Defined     References
+  FIN                5400        1500   3200   3500   3600
+  LOOP               3100        5200
+                      * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415                  Control Language         C3S411/HELLO_CL       PUB400 26-09-11 15:50:37         Page      4
+                                           Message Summary
+                Severity
+  Total         0-9  10-19  20-29  30-39  40-49  50-59  60-69  70-79  80-89  90-99
+       2          0      0      0      2      0      0      0      0      0      0
+  Program HELLO_CL not created in library C3S411. Maximum error severity 30.
+                                * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                  * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-
+gmake: *** [makefile:200: hello_cl.cl] Error 1

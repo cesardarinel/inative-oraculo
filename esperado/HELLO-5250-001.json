@@ -1,0 +1,82 @@
+{
+  "contrato_version": 1,
+  "fixture": "HELLO-5250-001",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-22T10:00:00Z"
+  },
+  "observables": [
+    {
+      "kind": "display",
+      "name": "pantalla1",
+      "value": {
+        "screen": {
+          "rows": 24,
+          "cols": 80
+        },
+        "cursor": {
+          "row": 6,
+          "col": 21
+        },
+        "fields": [
+          {
+            "name": "CUSTOMER_ID",
+            "row": 5,
+            "col": 20,
+            "length": 10,
+            "usage": "input",
+            "value": "1001",
+            "attributes": [
+              "mdt"
+            ]
+          }
+        ],
+        "indicators": {
+          "01": false,
+          "03": true
+        },
+        "response_key": "ENTER"
+      }
+    },
+    {
+      "kind": "joblog",
+      "name": "mensajes",
+      "value": [
+        {
+          "id": "CPF1124",
+          "sev": 0,
+          "text": "Job started"
+        }
+      ]
+    },
+    {
+      "kind": "return",
+      "name": "rc",
+      "value": 0
+    },
+    {
+      "kind": "libl",
+      "name": "libl",
+      "value": [
+        "C3S411",
+        "QTEMP",
+        "QGPL"
+      ]
+    },
+    {
+      "kind": "objects",
+      "name": "objects",
+      "value": [
+        "C3S411/HELLO *PGM",
+        "C3S411/HELLODSPF *FILE"
+      ]
+    },
+    {
+      "kind": "db",
+      "name": "db",
+      "value": []
+    }
+  ]
+}

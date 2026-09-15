@@ -1,0 +1,236 @@
+{
+ "case": "hello_rpg-error4",
+ "language": "RPGLE",
+ "success": false,
+ "object_created": false,
+ "max_severity": 30,
+ "messages": [
+  {
+   "id": "RNF7066",
+   "severity": 0,
+   "line": 13
+  },
+  {
+   "id": "RNF7089",
+   "severity": 0,
+   "line": 13
+  },
+  {
+   "id": "RNF0289",
+   "severity": 20,
+   "line": 13
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 15
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 16
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 17
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 18
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 19
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 20
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 21
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 22
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 23
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 24
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 25
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 26
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 27
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 28
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 29
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 30
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 31
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 32
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 33
+  },
+  {
+   "id": "RNF5014",
+   "severity": 30,
+   "line": 21
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 17
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 18
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 15
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 19
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 16
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 15
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 16
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 17
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 18
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 19
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 20
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 22
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 25
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 26
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 28
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 30
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 31
+  }
+ ],
+ "severity_summary": {
+  "total": 38,
+  "informational": 2,
+  "warning": 0,
+  "error": 21,
+  "severe": 15
+ },
+ "command_messages": [
+  {
+   "id": "RNS9308",
+   "severity": 30
+  },
+  {
+   "id": "CPC0904",
+   "severity": 0
+  },
+  {
+   "id": "RNS9310",
+   "severity": 30
+  }
+ ],
+ "status": "gap",
+ "provenance": {
+  "measured": true,
+  "ref": "raw/listing.txt",
+  "note": "40 textos visibles: 2 info + 19x0262 + 0289 + 5014 + 5x7030 + 12x7503. IBM imprime Summary 37 (7503 x9: 3 filas de Additional no llegan, regla dedup desconocida), buckets info 2 / error 20 / severe 15; Final 38 = 37 + marca 'b' de l\u00ednea 13 sin texto visible (Error 21 = 20 + 1 oculta). RNF7031 solo marca cross-ref (03 definido v\u00eda fichero), sin fila. iNative: gap total en IDs."
+ }
+}

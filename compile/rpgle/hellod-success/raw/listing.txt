@@ -1,0 +1,250 @@
+>> RPGLE qrpglesrc/hellod.rpgle -> c3s411/hellod
+system -s "CHGATR OBJ('qrpglesrc/hellod.rpgle') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hellod.rpgle') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hellod.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hellod) SRCTYPE(RPGLE)"
+liblist -a c3s411; \
+system "CRTBNDRPG PGM(c3s411/hellod) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hellod) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)"
+CPI2119:  AUT and USRPRF parameter values were ignored.
+CPI2121:  Replaced object HELLOD type *PGM was moved to QRPLOBJ.
+RNS9304:  Program HELLOD placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:41:50.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      1
+   Command  . . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . . :   HELLOD
+     Library  . . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . . :   HELLOD
+   Source File  . . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . . :     C3S411
+     CCSID  . . . . . . . . . . . . :     273
+   Text 'description' . . . . . . . :
+   Last Change  . . . . . . . . . . :   26-09-11 15:41:50
+   Generation severity level  . . . :   10
+   Default activation group . . . . :   *YES
+   Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . . :   *SOURCE
+   Debug encryption key . . . . . . :   *NONE
+   Output . . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . . :   *NONE
+   Source listing indentation . . . :   *NONE
+   Type conversion options  . . . . :   *HEX
+   Language identifier  . . . . . . :   *JOBRUN
+   Replace program  . . . . . . . . :   *YES
+   User profile  . . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . . :   *NONE
+   Target release . . . . . . . . . :   *CURRENT
+   Allow null values  . . . . . . . :   *NO
+   Define condition names . . . . . :   *NONE
+   Enable performance collection  . :   *PEP
+   Profiling data . . . . . . . . . :   *NOCOL
+   Licensed Internal Code options . :
+   Generate program interface . . . :   *NO
+   Include directory  . . . . . . . :
+   Preprocessor options . . . . . . :   *NONE
+   Require prototype for export . . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      2
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1 **free                                                                                                    000000     000100
+      2 // ============================================================                                           000000     000200
+      3 // Programa : HELLOD                                                                                      000000     000300
+      4 // Tipo     : RPGLE (*PGM) con DSPF                                                                       000000     000400
+      5 // Desc     : Hola Mundo interactivo 5250.                                                                000000     000500
+      6 //            Reusa la pantalla HELLO (QDDSSRC/HELLO, formato FMT01),                                     000000     000600
+      7 //            la MISMA que usan C, C++, COBOL, RPG, SQLRPG y CL.                                          000000     000700
+      8 // Autor    : Proyecto Hola Mundo - IBM i                                                                 000000     000800
+      9 // Compila  : CRTBNDRPG PGM(HELLOD) SRCFILE(QRPGLESRC)                                                    000000     000900
+     10 // Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     001000
+     11 // Ejecuta  : CALL PGM(HELLOD)  (sesion 5250 interactiva)                                                 000000     001100
+     12 // ============================================================                                           000000     001200
+     13 ctl-opt dftactgrp(*no) actgrp(*new)                                                                       000000     001300
+     14         option(*srcstmt);                                                                                 000000     001400
+ 001500                                                                                                           000000     001500
+         *--------------------------------------------------------------------*
+         * Compiler Options in Effect:                                        *
+         *--------------------------------------------------------------------*
+         *  Text 'description' . . . . . . . :                                *
+         *  Generation severity level  . . . :   10                           *
+         *  Default activation group . . . . :   *NO                          *
+         *  Compiler options . . . . . . . . :   *XREF      *GEN              *
+         *                                       *NOSECLVL  *SHOWCPY          *
+         *                                       *EXPDDS    *EXT              *
+         *                                       *NOSHOWSKP *SRCSTMT          *
+         *                                       *DEBUGIO   *UNREF            *
+         *                                       *EVENTF                      *
+         *  Optimization level . . . . . . . :   *NONE                        *
+         *  Source listing indentation . . . :   *NONE                        *
+         *  Type conversion options  . . . . :   *NONE                        *
+         *  Sort sequence  . . . . . . . . . :   *HEX                         *
+         *  Language identifier  . . . . . . :   *JOBRUN                      *
+         *  User profile . . . . . . . . . . :   *USER                        *
+         *  Authority  . . . . . . . . . . . :   *LIBCRTAUT                   *
+         *  Truncate numeric . . . . . . . . :   *YES                         *
+         *  Fix numeric  . . . . . . . . . . :   *NONE                        *
+         *  Allow null values  . . . . . . . :   *NO                          *
+         *  Storage model . . .  . . . . . . :   *SNGLVL                      *
+         *  Binding directory from Command . :   *NONE                        *
+         *  Binding directory from Source  . :   *NONE                        *
+         *  Activation group . . . . . . . . :   *NEW                         *
+         *  Enable performance collection  . :   *PEP                         *
+         *  Profiling data . . . . . . . . . :   *NOCOL                       *
+         *  Generate program interface . . . :   *NO                          *
+         *  Require prototype for export . . :   *NO                          *
+         *--------------------------------------------------------------------*
+ 001600 dcl-f hello workstn;                                                                                      000000     001600
+         *--------------------------------------------------------------------------------------------*
+         *                               RPG name         External name                               *
+         * File name. . . . . . . . . :  HELLO            C3S411/HELLO                                *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      3
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+         * Record format(s) . . . . . :  FMT01            FMT01                                       *
+         *--------------------------------------------------------------------------------------------*
+ 001700                                                                                                           000000     001700
+ 001800 // Campos del DSPF FMT01 (externos):                                                                      000000     001800
+ 001900 // NOMBRE 30A B, SALUDO 50A O, USUARIO 10A O,                                                             000000     001900
+ 002000 // FECHA 8A O, HORA 8A O, PROGLEN 10A O                                                                   000000     002000
+ 002100 // Indicadores CA03(03) y CA12(12) -> *IN03 *IN12                                                         000000     002100
+ 002200                                                                                                           000000     002200
+ 002300 // PSDS para obtener el usuario real del job                                                              000000     002300
+ 002400 dcl-ds PgmSts PSDS;                                                                                       000000     002400
+ 002500   jobUser char(10) pos(254);                                                                              000000     002500
+ 002600 end-ds;                                                                                                   000000     002600
+ 002700                                                                                                           000000     002700
+ 002800 // Identificar el lenguaje en la pantalla compartida                                                      000000     002800
+ 000001=IFMT01                                                                                                              1000001
+         *--------------------------------------------------------------------------------------------*                     1
+         * RPG record format  . . . . :  FMT01                                                        *                     1
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     1
+         *--------------------------------------------------------------------------------------------*                     1
+ 000002=I                             A    1   30  NOMBRE                                                                   1000002
+ 002900 proglen = 'RPGLE';                                                                                        000000     002900
+ 003000 usuario = jobUser;                                                                                        000000     003000
+ 003100 fecha = %char(%date():*iso0);                                                                             000000     003100
+ 003200 hora  = %char(%time():*hms0);                                                                             000000     003200
+ 003300 saludo = 'Hola Mundo desde IBM i con RPGLE!';                                                             000000     003300
+ 003400                                                                                                           000000     003400
+ 003500 dou (*in03 or *in12);                                                                                B01  000000     003500
+ 003600   exfmt fmt01;                                                                                        01  000000     003600
+ 003700   if (*in03 or *in12);                                                                               B02  000000     003700
+ 003800     leave;                                                                                            02  000000     003800
+ 003900   endif;                                                                                             E02  000000     003900
+ 004000   if (%trim(nombre) = '');                                                                           B02  000000     004000
+ 004100     saludo = 'Hola Mundo! Ingresa tu nombre. (RPGLE)';                                                02  000000     004100
+ 004200   else;                                                                                              X02  000000     004200
+ 004300     saludo = 'Hola, ' + %trim(nombre) + '! Bienvenido a IBM i. (RPGLE)';                              02  000000     004300
+ 004400   endif;                                                                                             E02  000000     004400
+ 004500   usuario = jobUser;                                                                                  01  000000     004500
+ 004600   fecha = %char(%date():*iso0);                                                                       01  000000     004600
+ 004700   hora  = %char(%time():*hms0);                                                                       01  000000     004700
+ 004800 enddo;                                                                                               E01  000000     004800
+ 004900                                                                                                           000000     004900
+ 005000 *inlr = *on;                                                                                              000000     005000
+ 005100 return;                                                                                                   000000     005100
+ 000001=OFMT01                                                                                                              2000001
+         *--------------------------------------------------------------------------------------------*                     2
+         * RPG record format  . . . . :  FMT01                                                        *                     2
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     2
+         *--------------------------------------------------------------------------------------------*                     2
+ 000002=O                       NOMBRE              30A CHAR       30                                                       2000002
+ 000003=O                       SALUDO              80A CHAR       50                                                       2000003
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      4
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000004=O                       USUARIO             90A CHAR       10                                                       2000004
+ 000005=O                       FECHA               98A CHAR        8                                                       2000005
+ 000006=O                       HORA               106A CHAR        8                                                       2000006
+ 000007=O                       PROGLEN            116A CHAR       10                                                       2000007
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      5
+           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+  Msg id  Sv   Statement    Message text
+ *RNF7089 00        001600  RPG provides Separate-Indicator area for file HELLO.
+  * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                  O u t p u t   B u f f e r   P o s i t i o n s
+ Line   Start End   Field or Constant
+ Number Pos   Pos
+    2000002     1    30 NOMBRE
+    2000003    31    80 SALUDO
+    2000004    81    90 USUARIO
+    2000005    91    98 FECHA
+    2000006    99   106 HORA
+    2000007   107   116 PROGLEN
+  * * * * *   E N D   O F   O U T P U T   B U F F E R   P O S I T I O N   *  * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      6
+                           C r o s s   R e f e r e n c e
+       File and Record References:
+          File              Device             References (D=Defined)
+            Record
+          HELLO             WORKSTN                001600D
+            FMT01                                  001600D    1000001      003600     2000001
+       Global Field References:
+          Field             Attributes         References (D=Defined M=Modified)
+          *INLR             N(1)                   005000M
+          *IN03             N(1)                   003500      003700
+          *IN12             N(1)                   003500      003700
+          FECHA             A(8)                   003100M     004600M    2000005
+          HORA              A(8)                   003200M     004700M    2000006
+          JOBUSER           A(10)                  002500D     003000      004500
+          NOMBRE            A(30)                 1000002M     004000      004300     2000002
+ *RNF7031 PGMSTS            DS(263)                002400D
+          PROGLEN           A(10)                  002900M    2000007
+          SALUDO            A(50)                  003300M     004100M     004300M    2000003
+          USUARIO           A(10)                  003000M     004500M    2000004
+       Indicator References:
+          Indicator                            References (D=Defined M=Modified)
+          03                                      1000001D     003500      003700
+          12                                      1000001D     003500      003700
+          LR                                       005000M
+        * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      7
+                       E x t e r n a l   R e f e r e n c e s
+       Statically bound procedures:
+          Procedure                            References
+          No references in the source.
+       Imported fields:
+          Field             Attributes         Defined
+          No references in the source.
+       Exported fields:
+          Field             Attributes         Defined
+          No references in the source.
+    * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      8
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+ *RNF7031 00      1 The name or indicator is not referenced.
+ *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOD            PUB400     26-09-11 15:41:50        Page      9
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        2
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        2
+   Source Totals:
+     Records . . . . . . . . . . . . :       60
+     Specifications  . . . . . . . . :       36
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       23
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Program HELLOD placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:41:50.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

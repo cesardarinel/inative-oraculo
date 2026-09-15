@@ -1,0 +1,12 @@
+{
+ "origin": "user terminal transcript 2026-09-11 14:59:58 (gmake BUILDLIB=c3s411)",
+ "host": "IBM i V7R5M0 (5770WDS), PUB400",
+ "command": "CRTBNDRPG PGM(c3s411/hello) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)",
+ "listing_options": "GENLVL=10, *XREF *GEN *NOSECLVL *SHOWCPY *EXPDDS *EXT *NOSHOWSKP *NOSRCSTMT *DEBUGIO *UNREF *EVENTF, DBGVIEW(*SOURCE)",
+ "note": "Caso éxito RPGLE con datfmt(*iso)/timfmt(*iso): cero errores, RNF7031+RNF7089 informativos (00), objeto creado. Fuente idéntica a inative-test hello.rpgle (24 records).",
+ "confirmations": [
+  "2026-09-11 15:20:21 (dspf) / 15:12:53+15:20:21 (rpgle): segundo run idéntico salvo timestamps",
+  "2026-09-11 15:43/15:45: tercer run idéntico salvo timestamps",
+  "2026-09-11 15:47/15:50: cuarto y quinto runs idénticos salvo timestamps"
+ ]
+}

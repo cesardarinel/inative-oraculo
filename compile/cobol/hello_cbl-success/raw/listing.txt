@@ -1,0 +1,275 @@
+>> COBOL qcblsrc/hello_cbl.cbl -> c3s411/hello_cbl
+system -s "CHGATR OBJ('qcblsrc/hello_cbl.cbl') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qcblsrc/hello_cbl.cbl') TOMBR('/QSYS.lib/c3s411.lib/QCBLLESRC.file/hello_cbl.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QCBLLESRC) MBR(hello_cbl) SRCTYPE(CBLLE)"
+liblist -a c3s411; \
+system "CRTBNDCBL PGM(c3s411/hello_cbl) SRCFILE(c3s411/QCBLLESRC) SRCMBR(hello_cbl) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)"
+LNC0901:  Program HELLO_CBL created in library C3S411 on 26-09-11 at 15:47:39.
+  5770WDS V7R5M0  220415 LN        IBM ILE COBOL                 C3S411/HELLO_CBL         PUB400     26-09-11 15:47:39        Page      1
+ Command  . . . . . . . . . . . . . . . :   CRTBNDCBL
+ Actual Values:
+   Program  . . . . . . . . . . . . . . :   HELLO_CBL
+     Library  . . . . . . . . . . . . . :     C3S411
+   Source file  . . . . . . . . . . . . :   QCBLLESRC
+     Library  . . . . . . . . . . . . . :     C3S411
+     CCSID  . . . . . . . . . . . . . . :   273
+   Source member  . . . . . . . . . . . :   HELLO_CBL      26-09-11 15:47:39
+   Text 'description' . . . . . . . . . :   *BLANK
+ Command Options:
+   Program  . . . . . . . . . . . . . . :   HELLO_CBL
+     Library  . . . . . . . . . . . . . :     C3S411
+   Source file  . . . . . . . . . . . . :   QCBLLESRC
+     Library  . . . . . . . . . . . . . :     C3S411
+   Source member  . . . . . . . . . . . :   HELLO_CBL
+   Output . . . . . . . . . . . . . . . :   *PRINT
+   Generation severity level  . . . . . :   30
+   Text 'description' . . . . . . . . . :   *SRCMBRTXT
+   Compiler options . . . . . . . . . . :   *EVENTF
+   Conversion options . . . . . . . . . :   *NONE
+   Message limit:
+     Number of messages . . . . . . . . :   *NOMAX
+     Message limit severity . . . . . . :   30
+   Debug view option  . . . . . . . . . :   *SOURCE
+     Compress listing view  . . . . . . :   *NOCOMPRESSDBG
+   Debug encryption key . . . . .  . . :   *NONE
+   Optimize level . . . . . . . . . . . :   *NONE
+   FIPS flagging  . . . . . . . . . . . :   *NOFIPS *NOOBSOLETE
+   Extended display options . . . . . . :   *NONE
+   Flagging severity  . . . . . . . . . :   0
+   Replace program  . . . . . . . . . . :   *YES
+   Simple program . . . . . . . . . . . :   *YES
+   Authority  . . . . . . . . . . . . . :   *LIBCRTAUT
+   Link literal . . . . . . . . . . . . :   *PGM
+   Target release . . . . . . . . . . . :   *CURRENT
+   User profile . . . . . . . . . . . . :   *USER
+   Sort sequence  . . . . . . . . . . . :   *HEX
+     Library  . . . . . . . . . . . . . :
+   Language identifier  . . . . . . . . :   *JOBRUN
+   Enable performance collection:
+     Collection level . . . . . . . . . :   *PEP
+   Binding directory  . . . . . . . . . :   *NONE
+     Library  . . . . . . . . . . . . . :
+   Storage model  . . . . . . . . . . . :   *SNGLVL
+   Activation group . . . . . . . . . . :   *STGMDL
+   Profiling data . . . . . . . . . . . :   *NOCOL
+   Coded character set ID . . . . . . . :   *JOBRUN
+   National coded character set ID  . . :   13488
+   Arithmetic mode. . . . . . . . . . . :   *NOEXTEND
+   Padding character:
+     Single byte to national  . . . . . :   NX"0020"
+     Double byte to national  . . . . . :   NX"3000"
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 LN        IBM ILE COBOL                 C3S411/HELLO_CBL         PUB400     26-09-11 15:47:39        Page      2
+     National to national . . . . . . . :   NX"3000"
+   Include directory  . . . . . . . . . :   *NONE
+   Generate program information . . . . :   *NO
+   Define names . . . . . . . . . . . . :   *NONE
+   TARGET CODED CHARACTER SET ID  . . . :   *SRC
+   Compiler . . . . . . . . . . . . . . :   IBM ILE COBOL
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 LN        IBM ILE COBOL                 C3S411/HELLO_CBL         PUB400     26-09-11 15:47:39        Page      3
+                                      S o u r c e
+   STMT PL SEQNBR -A 1 B..+....2....+....3....+....4....+....5....+....6....+....7..IDENTFCN  S COPYNAME   CHG DATE
+            000100* ============================================================
+            000200* Programa : HELLOCBL
+            000300* Tipo     : COBOL ILE (*PGM) con DSPF 5250
+            000400* Desc     : Hola Mundo interactivo 5250 en ILE COBOL.
+            000500*            Reusa la pantalla HELLO (formato FMT01), la MISMA
+            000600*            que usan RPGLE, RPG, C, C++, SQLRPG y CL.
+            000700*            Fichero TRANSACTION: WRITE FORMAT muestra la
+            000800*            pantalla y READ lee la respuesta (= EXFMT).
+            000900*            ENTER saluda, F3/F12 o NOMBRE = 'FIN' sale.
+            001000* Compila  : CRTBNDCBL PGM(HELLOCBL) SRCFILE(QCBLLESRC)
+            001100* Requiere : DSPF HELLO compilado antes (CRTDSPF) y en *LIBL
+            001200* Ejecuta  : ADDLIBLE MYAPP (o tu BUILDLIB)
+            001300*            CALL PGM(HELLOCBL)  (sesion 5250 interactiva)
+            001400* ============================================================
+      1     IDENTIFICATION DIVISION.
+      2     PROGRAM-ID. HELLOCBL.
+      3     ENVIRONMENT DIVISION.
+      4     INPUT-OUTPUT SECTION.
+      5     FILE-CONTROL.
+      6         SELECT DSPF-FILE ASSIGN TO WORKSTATION-"HELLO"
+      8           ORGANIZATION IS TRANSACTION
+      9           ACCESS MODE IS SEQUENTIAL
+     10           FILE STATUS IS WS-FILE-STATUS.
+     11     DATA DIVISION.
+     12     FILE SECTION.
+     13     FD  DSPF-FILE.
+     14     01  FMT01.
+     15         05 NOMBRE    PIC X(30).
+     16         05 SALUDO    PIC X(50).
+     17         05 USUARIO   PIC X(10).
+     18         05 FECHA     PIC X(8).
+     19         05 HORA      PIC X(8).
+     20         05 PROGLEN   PIC X(10).
+     21     WORKING-STORAGE SECTION.
+     22     01  WS-FILE-STATUS   PIC XX.
+     23     01  WS-SALIR         PIC X      VALUE 'N'.
+     24     01  WS-NOW           PIC X(16).
+     25     PROCEDURE DIVISION.
+            MAIN-PARA.
+     26         OPEN I-O DSPF-FILE
+     27         IF WS-FILE-STATUS NOT = '00'
+                  DISPLAY 'HELLOCBL: no se pudo abrir el DSPF HELLO (ADDLIBLE?)'
+     28           STOP RUN
+                END-IF
+     29         MOVE 'ILE COBOL ' TO PROGLEN
+     30         MOVE 'ILE COBOL ' TO USUARIO
+     31         MOVE FUNCTION CURRENT-DATE TO WS-NOW
+     32         MOVE WS-NOW(1:8) TO FECHA
+     33         MOVE WS-NOW(9:6) TO HORA
+     34         MOVE 'Hola Mundo desde IBM i con ILE COBOL!' TO SALUDO
+     35         MOVE SPACES TO NOMBRE
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 LN        IBM ILE COBOL                 C3S411/HELLO_CBL         PUB400     26-09-11 15:47:39        Page      4
+   STMT PL SEQNBR -A 1 B..+....2....+....3....+....4....+....5....+....6....+....7..IDENTFCN  S COPYNAME   CHG DATE
+     36         PERFORM UNTIL WS-SALIR = 'S'
+     37           WRITE FMT01 FORMAT IS 'FMT01'
+     38           IF WS-FILE-STATUS NOT = '00'
+     39             MOVE 'S' TO WS-SALIR
+                  ELSE
+     40             READ DSPF-FILE
+                      AT END
+     41                 MOVE 'S' TO WS-SALIR
+                      NOT AT END
+     42                 IF WS-FILE-STATUS NOT = '00'
+     43                   MOVE 'S' TO WS-SALIR
+                        ELSE
+     44                   IF NOMBRE = SPACES
+     45                     MOVE 'Hola Mundo! Ingresa tu nombre. (COBOL)'
+                              TO SALUDO
+                          ELSE
+     46                     IF NOMBRE = 'FIN'
+     47                       MOVE 'S' TO WS-SALIR
+                            ELSE
+     48                       STRING 'Hola, ' DELIMITED BY SIZE
+                                     NOMBRE DELIMITED BY '  '
+                                     '! (ILE COBOL)' DELIMITED BY SIZE
+                                INTO SALUDO
+                              END-STRING
+                            END-IF
+                          END-IF
+     49                   MOVE FUNCTION CURRENT-DATE TO WS-NOW
+     50                   MOVE WS-NOW(1:8) TO FECHA
+     51                   MOVE WS-NOW(9:6) TO HORA
+                        END-IF
+                    END-READ
+                  END-IF
+                END-PERFORM
+     52         CLOSE DSPF-FILE
+     53         STOP RUN.
+                            * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 LN        IBM ILE COBOL                 C3S411/HELLO_CBL         PUB400     26-09-11 15:47:39        Page      5
+                                     M e s s a g e s
+    STMT
+ *        MSGID: LNC0518  SEVERITY:  0  SEQNBR:  000100
+          Message . . . . :   Comment(s) found before IDENTIFICATION DIVISION
+            header. Accepted.
+ *     2  MSGID: LNC0810  SEVERITY: 10  SEQNBR:  PROGRA
+          Message . . . . :   Module name 'HELLO_CBL' does not match outermost
+            PROGRAM-ID name 'HELLOCBL'. Accepted.
+ *     7  MSGID: LNC0017  SEVERITY: 20  SEQNBR:      SE
+          Message . . . . :   Name 'WORKSTATION-' ends with one or more hyphens
+            or underscores. Characters ignored.
+ *     7  MSGID: LNC0422  SEVERITY:  0  SEQNBR:      SE
+          Message . . . . :   System-name not found or not valid in ASSIGN
+            clause. System-name "DSPF_FILE" assumed.
+ *     7  MSGID: LNC0849  SEVERITY: 10  SEQNBR:      SE
+          Message . . . . :   Any assignment-name or literal other than the first
+            is syntax checked and ignored.
+ *     7  MSGID: LNC0001  SEVERITY: 10  SEQNBR:      SE
+          Message . . . . :   Blank assumed before character '"' in column 44.
+ *     7  MSGID: LNC0419  SEVERITY: 20  SEQNBR:      SE
+          Message . . . . :   Device type not found in ASSIGN clause. Assumed
+            DISK.
+ *    10  MSGID: LNC0010  SEVERITY: 10  SEQNBR:
+          Message . . . . :   'FILE' not valid in Area A. Accepted as if in Area
+            B.
+ *    14  MSGID: LNC0033  SEVERITY: 10  SEQNBR:  01  FM
+          Message . . . . :   '01' not in Area A. Accepted.
+ *    22  MSGID: LNC0033  SEVERITY: 10  SEQNBR:  01  WS
+          Message . . . . :   '01' not in Area A. Accepted.
+ *    23  MSGID: LNC0033  SEVERITY: 10  SEQNBR:  01  WS
+          Message . . . . :   '01' not in Area A. Accepted.
+ *    23  MSGID: LNC0014  SEVERITY: 10  SEQNBR:  01  WS
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    24  MSGID: LNC0033  SEVERITY: 10  SEQNBR:  01  WS
+          Message . . . . :   '01' not in Area A. Accepted.
+ *    27  MSGID: LNC0014  SEVERITY: 10  SEQNBR:      IF
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    29  MSGID: LNC0014  SEVERITY: 10  SEQNBR:      MO
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    30  MSGID: LNC0014  SEVERITY: 10  SEQNBR:      MO
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    34  MSGID: LNC0014  SEVERITY: 10  SEQNBR:      MO
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    36  MSGID: LNC0014  SEVERITY: 10  SEQNBR:      PE
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    37  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    38  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    39  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    41  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    42  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    43  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    45  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    46  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    47  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    48  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 LN        IBM ILE COBOL                 C3S411/HELLO_CBL         PUB400     26-09-11 15:47:39        Page      6
+    STMT
+            accepted.
+ *    48  MSGID: LNC0014  SEVERITY: 10  SEQNBR:
+          Message . . . . :   Delimiter for literal is not correct. Literal
+            accepted.
+ *    53  MSGID: LNC0917  SEVERITY: 10  SEQNBR:      ST
+          Message . . . . :   COBOL reserved word or special character
+            'END-PERFORM' expected.  'END-PERFORM' assumed.
+                                          Message Summary
+ Message totals:
+    Information (00-04) . . . . . . . . :      2
+    Warning     (05-19) . . . . . . . . :     27
+    Error       (20-29) . . . . . . . . :      2
+    Severe      (30-39) . . . . . . . . :      0
+    Terminal    (40-99) . . . . . . . . :      0
+    --------------------------------------------
+    Total                                     31
+                         * * * * *   E N D   O F   M E S S A G E S   * * * * *
+ Statistics:
+    Source records read . . . . . . . . :     90
+    Copy records read . . . . . . . . . :      0
+    Copy members processed  . . . . . . :      0
+    Sequence errors . . . . . . . . . . :      0
+    Highest severity message issued . . :     20
+   LNC0901  0  Program HELLO_CBL created in library C3S411 on 26-09-11 at 15:47:39.
+                       * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

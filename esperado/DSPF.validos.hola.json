@@ -1,0 +1,13 @@
+{
+  "contrato_version": 1,
+  "fixture": "DSPF.validos.hola",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T21:21:21-0400",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": []
+}

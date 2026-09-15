@@ -1,0 +1,287 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "recorder_version": "1.0.0",
+  "experiment": {
+    "id": "JOBLOG-0001",
+    "name": "CALL QTEMP/DIVZERO (object not found demo)",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "rpgle/runtime/divide-by-zero"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "job_type": "",
+    "job_subtype": "",
+    "system_name": "${SYSTEM_NAME}",
+    "source": "CONFIG_FALLBACK"
+  },
+  "job_raw": {
+    "job_name": "",
+    "job_user": "C3S41",
+    "job_number": "",
+    "job_type": "",
+    "job_subtype": "",
+    "system_name": "pub400.com",
+    "source": "CONFIG_FALLBACK"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/DIVZERO)",
+    "program": "",
+    "library": "C3S411",
+    "extra": {
+      "listing_preview": "CPC2198: Current library changed to C3S411.\r\nCPD0170: Program DIVZERO in library QTEMP not found.\r\nCPF0006: Errors occurred in command.\r\n\n"
+    }
+  },
+  "result": {
+    "success": false,
+    "exit_code": 255
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPC2198",
+        "message_type": "DIAGNOSTIC",
+        "severity": 0,
+        "message_text": "Current library changed to C3S411.",
+        "message_second_level_text": "",
+        "message_timestamp": "${TIMESTAMP}",
+        "ordinal_position": 1,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "${JOB_NAME}",
+        "id": "CPC2198",
+        "sev": 0,
+        "text": "Current library changed to C3S411.",
+        "ordinal": 1
+      },
+      {
+        "message_id": "CPD0170",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Program DIVZERO in library QTEMP not found.",
+        "message_second_level_text": "",
+        "message_timestamp": "${TIMESTAMP}",
+        "ordinal_position": 2,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "${JOB_NAME}",
+        "id": "CPD0170",
+        "sev": 30,
+        "text": "Program DIVZERO in library QTEMP not found.",
+        "ordinal": 2
+      },
+      {
+        "message_id": "CPF0006",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Errors occurred in command.",
+        "message_second_level_text": "",
+        "message_timestamp": "${TIMESTAMP}",
+        "ordinal_position": 3,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "${JOB_NAME}",
+        "id": "CPF0006",
+        "sev": 30,
+        "text": "Errors occurred in command.",
+        "ordinal": 3
+      }
+    ],
+    "raw_messages": [
+      {
+        "message_id": "CPC2198",
+        "message_type": "DIAGNOSTIC",
+        "severity": 0,
+        "message_text": "Current library changed to C3S411.",
+        "message_second_level_text": "",
+        "message_timestamp": "",
+        "ordinal_position": 1,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "",
+        "id": "CPC2198",
+        "sev": 0,
+        "text": "Current library changed to C3S411.",
+        "ordinal": 1
+      },
+      {
+        "message_id": "CPD0170",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Program DIVZERO in library QTEMP not found.",
+        "message_second_level_text": "",
+        "message_timestamp": "",
+        "ordinal_position": 2,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "",
+        "id": "CPD0170",
+        "sev": 30,
+        "text": "Program DIVZERO in library QTEMP not found.",
+        "ordinal": 2
+      },
+      {
+        "message_id": "CPF0006",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Errors occurred in command.",
+        "message_second_level_text": "",
+        "message_timestamp": "",
+        "ordinal_position": 3,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "",
+        "id": "CPF0006",
+        "sev": 30,
+        "text": "Errors occurred in command.",
+        "ordinal": 3
+      }
+    ],
+    "initial_count": 1,
+    "final_count": 1,
+    "delta_count": 3
+  },
+  "raw": {
+    "initial_snapshot": {
+      "captured_at": "2026-09-05T15:27:39.379706",
+      "messages": [
+        {
+          "message_id": "CPC2198",
+          "message_type": "UNKNOWN",
+          "severity": 0,
+          "message_text": "Current library changed to C3S411.",
+          "message_second_level_text": "",
+          "message_timestamp": "",
+          "ordinal_position": 1,
+          "from_program": "",
+          "from_library": "",
+          "to_program": "",
+          "to_library": "",
+          "message_key": "",
+          "job_name": "",
+          "id": "CPC2198",
+          "sev": 0,
+          "text": "Current library changed to C3S411.",
+          "ordinal": 1
+        }
+      ],
+      "count": 1,
+      "source": "DSPJOBLOG_STDOUT",
+      "sql": "DSPJOBLOG"
+    },
+    "final_snapshot": {
+      "captured_at": "2026-09-05T15:27:45.477994",
+      "messages": [
+        {
+          "message_id": "CPC2198",
+          "message_type": "UNKNOWN",
+          "severity": 0,
+          "message_text": "Current library changed to C3S411.",
+          "message_second_level_text": "",
+          "message_timestamp": "",
+          "ordinal_position": 1,
+          "from_program": "",
+          "from_library": "",
+          "to_program": "",
+          "to_library": "",
+          "message_key": "",
+          "job_name": "",
+          "id": "CPC2198",
+          "sev": 0,
+          "text": "Current library changed to C3S411.",
+          "ordinal": 1
+        }
+      ],
+      "count": 1,
+      "source": "DSPJOBLOG_STDOUT",
+      "sql": "DSPJOBLOG"
+    },
+    "delta": [
+      {
+        "message_id": "CPC2198",
+        "message_type": "DIAGNOSTIC",
+        "severity": 0,
+        "message_text": "Current library changed to C3S411.",
+        "message_second_level_text": "",
+        "message_timestamp": "",
+        "ordinal_position": 1,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "",
+        "id": "CPC2198",
+        "sev": 0,
+        "text": "Current library changed to C3S411.",
+        "ordinal": 1
+      },
+      {
+        "message_id": "CPD0170",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Program DIVZERO in library QTEMP not found.",
+        "message_second_level_text": "",
+        "message_timestamp": "",
+        "ordinal_position": 2,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "",
+        "id": "CPD0170",
+        "sev": 30,
+        "text": "Program DIVZERO in library QTEMP not found.",
+        "ordinal": 2
+      },
+      {
+        "message_id": "CPF0006",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Errors occurred in command.",
+        "message_second_level_text": "",
+        "message_timestamp": "",
+        "ordinal_position": 3,
+        "from_library": "",
+        "from_program": "",
+        "to_program": "",
+        "message_key": "",
+        "job_name": "",
+        "id": "CPF0006",
+        "sev": 30,
+        "text": "Errors occurred in command.",
+        "ordinal": 3
+      }
+    ],
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T19:27:49+00:00",
+    "host": "pub400.com"
+  },
+  "manifest": {
+    "id": "JOBLOG-0001",
+    "language": "RPGLE",
+    "source_file": "",
+    "command": "CALL PGM(QTEMP/DIVZERO)",
+    "execution": "CALL PGM(QTEMP/DIVZERO)",
+    "expected_result": "unknown",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T19:27:49+00:00",
+    "fixture_status": "CAPTURED",
+    "recorder_version": "1.0.0",
+    "notes": "delta 3 msgs; initial 1 -> final 1"
+  }
+}

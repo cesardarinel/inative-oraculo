@@ -1,0 +1,80 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "recorder_version": "1.0.0",
+  "experiment": {
+    "id": "JOBLOG-TEST-001",
+    "name": "test SNDPGMMSG",
+    "language": "CL",
+    "operation": "SNDPGMMSG",
+    "category": "messages/sndpgmmsg"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "job_type": "",
+    "job_subtype": "",
+    "system_name": "${SYSTEM_NAME}",
+    "source": "CONFIG_FALLBACK"
+  },
+  "job_raw": {
+    "job_name": "",
+    "job_user": "C3S41",
+    "job_number": "",
+    "job_type": "",
+    "job_subtype": "",
+    "system_name": "pub400.com",
+    "source": "CONFIG_FALLBACK"
+  },
+  "operation": {
+    "command": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+    "program": "",
+    "library": "C3S411",
+    "extra": {}
+  },
+  "result": {
+    "success": false,
+    "exit_code": 255
+  },
+  "joblog": {
+    "messages": [],
+    "raw_messages": [],
+    "initial_count": 0,
+    "final_count": 0,
+    "delta_count": 0
+  },
+  "raw": {
+    "initial_snapshot": {
+      "captured_at": "2026-09-05T15:20:07.570708",
+      "messages": [],
+      "count": 0,
+      "source": "NONE",
+      "sql": ""
+    },
+    "final_snapshot": {
+      "captured_at": "2026-09-05T15:20:08.871494",
+      "messages": [],
+      "count": 0,
+      "source": "NONE",
+      "sql": ""
+    },
+    "delta": [],
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T19:20:08+00:00",
+    "host": "pub400.com"
+  },
+  "manifest": {
+    "id": "JOBLOG-TEST-001",
+    "language": "CL",
+    "source_file": "",
+    "command": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+    "execution": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+    "expected_result": "unknown",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T19:20:08+00:00",
+    "fixture_status": "CAPTURED",
+    "recorder_version": "1.0.0",
+    "notes": "delta 0 msgs; initial 0 -> final 0"
+  }
+}

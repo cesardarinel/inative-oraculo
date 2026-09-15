@@ -1,0 +1,64 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "RPG-RUNTIME-001",
+    "name": "divide_by_zero",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "rpgle/runtime/divide-by-zero"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/DIVZERO)",
+    "program": "DIVZERO",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 255
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNQ0100",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "Numeric value out of range.",
+        "message_second_level_text": "The result of a numeric operation is too large for the field.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CEE9901",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "Application error. RNQ0100 unmonitored by DIVZERO at statement 0000000012.",
+        "ordinal_position": 2
+      },
+      {
+        "message_id": "CPF9999",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "Function check. RNQ0100 unmonitored by DIVZERO at statement 0000000012.",
+        "ordinal_position": 3
+      }
+    ],
+    "initial_count": 12,
+    "final_count": 15,
+    "delta_count": 3
+  },
+  "manifest": {
+    "id": "RPG-RUNTIME-001",
+    "language": "RPGLE",
+    "command": "CALL PGM(QTEMP/DIVZERO)",
+    "expected_result": "runtime_error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

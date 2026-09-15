@@ -1,0 +1,144 @@
+{
+  "cases": 4,
+  "generated_at": "2026-09-02T16:02:42Z",
+  "results": [
+    {
+      "test_case": "HOLA",
+      "source_code": "**free\nctl-opt main(Main);\ndcl-proc Main;\n  dsply 'HOLA';\nend-proc;",
+      "should_fail": false,
+      "commands": [
+        {
+          "command": "CRTBNDRPG PGM(TESTINAT/HOLA) SRCSTMF('/home/user/oracle/src/testinat_hola.rpgle') OPTION(*EVENTF)",
+          "stdout": "5770WDS V7R5M0 210525\nProgram HOLA created in library TESTINAT.",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ],
+      "joblog": [
+        {
+          "message_id": "CPF0000",
+          "severity": 0,
+          "message_text": "*COMP Normal completion.",
+          "from_line": 0,
+          "from_column": 0
+        }
+      ],
+      "evfevent": null,
+      "spool_data": "5770WDS V7R5M0 210525\n  1 **free\n  2 ctl-opt main(Main);\n",
+      "raw_output": "",
+      "ok": true
+    },
+    {
+      "test_case": "ERROR_SINT",
+      "source_code": "**free\ndsply 'HOLA",
+      "should_fail": true,
+      "commands": [
+        {
+          "command": "CRTBNDRPG PGM(TESTINAT/ERROR_SINT) …",
+          "stdout": "*RNF7030 30      4 000004  The name or indicator is not defined.\n*RNF7503 30      4 000004  Expression contains an operand that is not defined.",
+          "stderr": "",
+          "exit_code": 1
+        }
+      ],
+      "joblog": [
+        {
+          "message_id": "RNF7030",
+          "severity": 30,
+          "message_text": "The name or indicator VARNOMBRE is not defined.",
+          "from_line": 4,
+          "from_column": 0
+        },
+        {
+          "message_id": "RNF7503",
+          "severity": 30,
+          "message_text": "Expression contains an operand that is not defined.",
+          "from_line": 4,
+          "from_column": 0
+        }
+      ],
+      "evfevent": [
+        {
+          "evt_type": "E",
+          "evt_line": 4,
+          "evt_column": 0,
+          "evt_msgid": "RNF7030",
+          "evt_msgtxt": "The name or indicator VARNOMBRE is not defined.",
+          "evt_severity": 30
+        }
+      ],
+      "spool_data": "*RNF7030 30      4 000004  The name or indicator VARNOMBRE is not defined.",
+      "raw_output": "",
+      "ok": false
+    },
+    {
+      "test_case": "ERROR_LINK",
+      "source_code": "**free\ndcl-pr NoExiste extproc;\nFuncionInexistente();",
+      "should_fail": true,
+      "commands": [
+        {
+          "command": "CRTBNDRPG PGM(TESTINAT/ERROR_LINK) …",
+          "stdout": "*CPD0053 30 Diagnostic  Symbol FuncionInexistente not defined.",
+          "stderr": "",
+          "exit_code": 1
+        }
+      ],
+      "joblog": [
+        {
+          "message_id": "CPD0053",
+          "severity": 30,
+          "message_text": "Symbol FuncionInexistente not defined. (CPF829B)",
+          "from_line": 0,
+          "from_column": 0
+        }
+      ],
+      "evfevent": [
+        {
+          "evt_type": "E",
+          "evt_line": 5,
+          "evt_column": 0,
+          "evt_msgid": "CPD0053",
+          "evt_msgtxt": "Symbol FuncionInexistente not defined.",
+          "evt_severity": 30
+        }
+      ],
+      "spool_data": "*CPD0053 30 a 000005 Symbol FuncionInexistente not defined.",
+      "raw_output": "",
+      "ok": false
+    },
+    {
+      "test_case": "WARNING_TEST",
+      "source_code": "**free\ndcl-s MiVar char(1);\nMiVar='HOLA';",
+      "should_fail": false,
+      "commands": [
+        {
+          "command": "CRTBNDRPG PGM(TESTINAT/WARNING_TEST) …",
+          "stdout": "*RNF worrying 10      3 000003  Value truncated.",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ],
+      "joblog": [
+        {
+          "message_id": "RNF0000",
+          "severity": 10,
+          "message_text": "Value truncated.",
+          "from_line": 0,
+          "from_column": 0
+        }
+      ],
+      "evfevent": [
+        {
+          "evt_type": "W",
+          "evt_line": 3,
+          "evt_column": 0,
+          "evt_msgid": "RNF0000",
+          "evt_msgtxt": "Value truncated.",
+          "evt_severity": 10
+        }
+      ],
+      "spool_data": "*RNF0000 10      3 000003  Value truncated.",
+      "raw_output": "",
+      "ok": true
+    }
+  ]
+}

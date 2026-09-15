@@ -1,0 +1,1 @@
+[{"id": "RNS9308", "severity": 30, "text": "Compilation stopped. Severity 30 errors found in program."}, {"id": "CPC0904", "severity": 0, "text": "Data area RETURNCODE created in library QTEMP."}, {"id": "RNS9310", "severity": 30, "text": "Compilation failed. Program HELLO_RPG not created in library C3S411."}]

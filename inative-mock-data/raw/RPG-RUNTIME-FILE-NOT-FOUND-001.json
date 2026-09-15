@@ -1,0 +1,66 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "RPG-RUNTIME-FILE-NOT-FOUND-001",
+    "name": "rpg runtime file not found",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "rpgle/runtime/file-not-found"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/FILENF)",
+    "program": "FILENF",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNX1216",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "File MYFILE in library QTEMP not found.",
+        "message_second_level_text": "The file was not found. Check that the file exists and that you have authority.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CEE9901",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "Application error. RNX1216 unmonitored by FILENF at statement 0000000005.",
+        "message_second_level_text": "",
+        "ordinal_position": 2
+      },
+      {
+        "message_id": "CPF9999",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "Function check. RNX1216 unmonitored by FILENF.",
+        "message_second_level_text": "",
+        "ordinal_position": 3
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 8,
+    "delta_count": 3
+  },
+  "manifest": {
+    "id": "RPG-RUNTIME-FILE-NOT-FOUND-001",
+    "language": "RPGLE",
+    "command": "CALL PGM(QTEMP/FILENF)",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

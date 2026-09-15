@@ -1,0 +1,13 @@
+{
+  "contrato_version": 1,
+  "fixture": "DSPF.invalidos.sin-rcdfmt",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T21:13:30-0400",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": []
+}

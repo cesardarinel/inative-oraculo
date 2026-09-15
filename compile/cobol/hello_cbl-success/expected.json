@@ -1,0 +1,179 @@
+{
+ "case": "hello_cbl-success",
+ "language": "COBOL",
+ "success": true,
+ "object_created": true,
+ "max_severity": 20,
+ "messages": [
+  {
+   "id": "LNC0518",
+   "severity": 0,
+   "line": 0
+  },
+  {
+   "id": "LNC0810",
+   "severity": 10,
+   "line": 2
+  },
+  {
+   "id": "LNC0017",
+   "severity": 20,
+   "line": 7
+  },
+  {
+   "id": "LNC0422",
+   "severity": 0,
+   "line": 7
+  },
+  {
+   "id": "LNC0849",
+   "severity": 10,
+   "line": 7
+  },
+  {
+   "id": "LNC0001",
+   "severity": 10,
+   "line": 7
+  },
+  {
+   "id": "LNC0419",
+   "severity": 20,
+   "line": 7
+  },
+  {
+   "id": "LNC0010",
+   "severity": 10,
+   "line": 10
+  },
+  {
+   "id": "LNC0033",
+   "severity": 10,
+   "line": 14
+  },
+  {
+   "id": "LNC0033",
+   "severity": 10,
+   "line": 22
+  },
+  {
+   "id": "LNC0033",
+   "severity": 10,
+   "line": 23
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 23
+  },
+  {
+   "id": "LNC0033",
+   "severity": 10,
+   "line": 24
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 27
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 29
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 30
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 34
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 36
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 37
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 38
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 39
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 41
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 42
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 43
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 45
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 46
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 47
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 48
+  },
+  {
+   "id": "LNC0014",
+   "severity": 10,
+   "line": 48
+  },
+  {
+   "id": "LNC0917",
+   "severity": 10,
+   "line": 53
+  }
+ ],
+ "severity_summary": {
+  "total": 31,
+  "informational": 2,
+  "warning": 27,
+  "error": 2,
+  "severe": 0,
+  "terminal": 0
+ },
+ "command_messages": [
+  {
+   "id": "LNC0901",
+   "severity": 0
+  }
+ ],
+ "status": "gap",
+ "provenance": {
+  "measured": true,
+  "ref": "raw/listing.txt (p\u00e1gs 5-7)",
+  "note": "30 textos transcritos vs Total 31 impreso (Warning 27 vs 26 contados): falta 1 warning sin identificar, posible l\u00ednea comida en el corte p\u00e1gs 5-6. Buckets COBOL 00-04/05-19 difieren de RPG: mapeo por lenguaje pendiente. iNative COBOL hoy no emite diagn\u00f3sticos: gap en IDs, outcome coincide."
+ }
+}

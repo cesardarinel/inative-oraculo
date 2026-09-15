@@ -1,0 +1,58 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "CMD-OBJECT-NOT-FOUND-001",
+    "name": "command object not found — dltf",
+    "language": "CMD",
+    "operation": "DLTF",
+    "category": "commands/object-not-found"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "DLTF FILE(QTEMP/NOTEXIST)",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPF2105",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "Object NOTEXIST in QTEMP type *FILE not found.",
+        "message_second_level_text": "The object does not exist.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CPF0006",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Errors occurred in command.",
+        "message_second_level_text": "",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 7,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "CMD-OBJECT-NOT-FOUND-001",
+    "language": "CMD",
+    "command": "DLTF FILE(QTEMP/NOTEXIST)",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

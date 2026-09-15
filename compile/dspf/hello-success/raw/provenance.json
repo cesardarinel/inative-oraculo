@@ -1,0 +1,13 @@
+{
+ "origin": "user terminal transcript 2026-09-11 14:59:58 (gmake BUILDLIB=c3s411)",
+ "host": "IBM i V7R5M0 (5770SS1)",
+ "command": "CRTDSPF FILE(c3s411/hello) SRCFILE(c3s411/QDDSSRC) SRCMBR(hello) REPLACE(*YES)",
+ "listing_options": "*SOURCE *LIST *NOSECLVL *NOEVENTF",
+ "genlvl": 20,
+ "note": "Caso éxito: CPI2126 + CPI2121 (replaced→QRPLOBJ) + CPC7301. Listing 3 págs; Message Summary vacía (Total 0) + CPC7301 00; sin Final Summary (el éxito no la trae). Fuente STMF exacta pendiente (29 líneas SEQNBR 100-2900 visibles en el listing).",
+ "confirmations": [
+  "2026-09-11 15:20:21 (dspf) / 15:12:53+15:20:21 (rpgle): segundo run idéntico salvo timestamps",
+  "2026-09-11 15:43/15:45: tercer run idéntico salvo timestamps",
+  "2026-09-11 15:47/15:50: cuarto y quinto runs idénticos salvo timestamps"
+ ]
+}

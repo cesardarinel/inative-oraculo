@@ -1,0 +1,30 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.invalidos.var-no-declarada",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T22:26:09+00:00",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": [
+    {
+      "kind": "mensajes",
+      "name": "RNF7030",
+      "value": "The name or indicator VARNOMBRE is not defined.",
+      "severidad": 30,
+      "linea": 7,
+      "norm": "The name or indicator VARNOMBRE is not defined."
+    },
+    {
+      "kind": "mensajes",
+      "name": "RNF7503",
+      "value": "Expression contains an operand that is not defined.",
+      "severidad": 30,
+      "linea": 7,
+      "norm": "Expression contains an operand that is not defined."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "MSG-COMPLETION-001",
+    "name": "completion message",
+    "language": "CL",
+    "operation": "SNDPGMMSG",
+    "category": "messages/completion"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "SNDPGMMSG MSG('Job completed') TOPGMQ(*PRV) MSGTYPE(*COMP)",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": true,
+    "exit_code": 0
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPF9897",
+        "message_type": "COMPLETION",
+        "severity": 0,
+        "message_text": "Job completed",
+        "message_second_level_text": "",
+        "ordinal_position": 1
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 6,
+    "delta_count": 1
+  },
+  "manifest": {
+    "id": "MSG-COMPLETION-001",
+    "language": "CL",
+    "command": "SNDPGMMSG MSG('Job completed') TOPGMQ(*PRV) MSGTYPE(*COMP)",
+    "expected_result": "success",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

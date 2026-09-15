@@ -1,0 +1,11 @@
+{
+ "origin": "user terminal transcript 2026-09-11 15:41:50 (gmake BUILDLIB=c3s411)",
+ "host": "IBM i V7R5M0 (5770WDS), PUB400",
+ "command": "CRTBNDRPG PGM(c3s411/hellod) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hellod) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)",
+ "listing_options": "GENLVL=10, DBGVIEW(*SOURCE), OPTION(*EVENTF)",
+ "note": "Éxito con DSPF + PSDS + dcl-f: RNF7089 (00, Additional) y RNF7031 PGMSTS (00, Cross Ref). Final: Info 2, Records 60. Fuente STMF exacta pendiente (difiere de la copia local de 43 líneas).",
+ "confirmations": [
+  "2026-09-11 15:43/15:45: tercer run idéntico salvo timestamps",
+  "2026-09-11 15:47/15:50: cuarto y quinto runs idénticos salvo timestamps"
+ ]
+}

@@ -1,0 +1,115 @@
+>> RPG   qrpglesrc/hello_rpg.rpg -> c3s411/hello_rpg
+system -s "CHGATR OBJ('qrpglesrc/hello_rpg.rpg') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hello_rpg.rpg') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hello_rpg.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hello_rpg) SRCTYPE(RPGLE)"
+liblist -a c3s411; \
+system "CRTBNDRPG PGM(c3s411/hello_rpg) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello_rpg) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)"
+RNS9308:  Compilation stopped. Severity 30 errors found in program.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+RNS9310:  Compilation failed. Program HELLO_RPG not created in library C3S411.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:26:19        Page      1
+   Command  . . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . . :   HELLO_RPG
+     Library  . . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . . :   HELLO_RPG
+   Source File  . . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . . :     C3S411
+     CCSID  . . . . . . . . . . . . :     273
+   Text 'description' . . . . . . . :
+   Last Change  . . . . . . . . . . :   26-09-11 15:26:19
+   Generation severity level  . . . :   10
+   Default activation group . . . . :   *YES
+   Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . . :   *SOURCE
+   Debug encryption key . . . . . . :   *NONE
+   Output . . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . . :   *NONE
+   Source listing indentation . . . :   *NONE
+   Type conversion options  . . . . :   *HEX
+   Language identifier  . . . . . . :   *JOBRUN
+   Replace program  . . . . . . . . :   *YES
+   User profile . . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . . :   *NONE
+   Target release . . . . . . . . . :   *CURRENT
+   Allow null values  . . . . . . . :   *NO
+   Define condition names . . . . . :   *NONE
+   Enable performance collection  . :   *PEP
+   Profiling data . . . . . . . . . :   *NOCOL
+   Licensed Internal Code options . :
+   Generate program interface . . . :   *NO
+   Include directory  . . . . . . . :
+   Preprocessor options . . . . . . :   *NONE
+   Require prototype for export . . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:26:19        Page      2
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1  * ============================================================                                           000000     000100
+      2  * Programa : HELLORPG                                                                                    000000     000200
+      3  * Tipo     : RPG formato fijo ILE (*PGM)                                                                 000000     000300
+      4  * Desc     : Hola Mundo interactivo 5250 en RPG fijo.                                                    000000     000400
+      5  *            Reusa la pantalla HELLO (formato FMT01), la MISMA                                           000000     000500
+      6  *            que usan RPGLE, C, C++, COBOL, SQLRPG y CL.                                                 000000     000600
+      7  * Compila  : CRTBNDRPG PGM(HELLORPG) SRCFILE(QRPGLESRC)                                                  000000     000700
+      8  *            (SRCTYPE RPGLE: RPG fijo ILE)                                                               000000     000800
+      9  * Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     000900
+     10  * Ejecuta  : CALL PGM(HELLORPG)  (sesion 5250 interactiva)                                               000000     001000
+     11  * ============================================================                                           000000     001100
+     12  * Archivo de pantalla (combinado, externo)                                                               000000     001200
+     13 FHELLO    CCF   E             WORKSTN                                                                     000000     001300
+ ======>          aab
+ *RNF0289 20 a      001300  Entry contains data that is not valid; only valid data is
+                            used.
+ *RNF2003 20 b      001300  The File Type is not I, O, U, or C; defaults to O if File
+                            Designation is blank, otherwise to I.
+     14  * Bucle interactivo: ENTER saluda, F3/F12 sale                                                           000000     001400
+         *--------------------------------------------------------------------------------------------*
+         *                               RPG name         External name                               *
+         * File name. . . . . . . . . :  HELLO            C3S411/HELLO                                *
+         * Record format(s) . . . . . :  FMT01            FMT01                                       *
+         *--------------------------------------------------------------------------------------------*
+     15=IFMT01                                                                                                              1000001
+         *--------------------------------------------------------------------------------------------*                     1
+         * RPG record format  . . . . :  FMT01                                                        *                     1
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     1
+         *--------------------------------------------------------------------------------------------*                     1
+ 000002=I                             A    1   30  NOMBRE                                                                   1000002
+ 002900 proglen = 'RPGLE';                                                                                        000000     002900
+ 003000 usuario = jobUser;                                                                                        000000     003000
+ 003100 fecha = %char(%date():*iso0);                                                                             000000     003100
+ 003200 hora  = %char(%time():*hms0);                                                                             000000     003200
+ 003300 saludo = 'Hola Mundo desde IBM i con RPGLE!';                                                             000000     003300
+ 003400                                                                                                           000000     003400
+ 003500 dou (*in03 or *in12);                                                                                B01  000000     003500
+ 003600   exfmt fmt01;                                                                                        01  000000     003600
+ 003700   if (*in03 or *in12);                                                                               B02  000000     003700
+ 003800     leave;                                                                                            02  000000     003800
+ 003900   endif;                                                                                             E02  000000     003900
+ 004000   if (%trim(nombre) = '');                                                                           B02  000000     004000
+ 004100     saludo = 'Hola Mundo! Ingresa tu nombre. (RPGLE)';                                                02  000000     004100
+ 004200   else;                                                                                              X02  000000     004200
+ 004300     saludo = 'Hola, ' + %trim(nombre) + '! Bienvenido a IBM i. (RPGLE)';                              02  000000     004300
+ 004400   endif;                                                                                             E02  000000     004400
+ 004500   usuario = jobUser;                                                                                  01  000000     004500
+ 004600   fecha = %char(%date():*iso0);                                                                       01  000000     004600
+ 004700   hora  = %char(%time():*hms0);                                                                       01  000000     004700
+ 004800 enddo;                                                                                               E01  000000     004800
+ 004900                                                                                                           000000     004900
+ 005000 *inlr = *on;                                                                                              000000     005000
+ 005100 return;                                                                                                   000000     005100
+ 000001=OFMT01                                                                                                              2000001
+         *--------------------------------------------------------------------------------------------*                     2
+         * RPG record format  . . . . :  FMT01                                                        *                     2
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     2
+         *--------------------------------------------------------------------------------------------*                     2
+ 000002=O                       NOMBRE              30A CHAR       30                                                       2000002
+ 000003=O                       SALUDO              80A CHAR       50                                                       2000003
+                                                    -=* http://pub400.com *=-

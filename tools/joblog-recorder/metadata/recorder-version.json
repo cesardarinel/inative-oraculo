@@ -1,0 +1,8 @@
+{
+  "recorder_version": "1.0.0",
+  "fixture_version": 1,
+  "source": "IBM i 7.5 (PUB400)",
+  "go_contract": "internal/joblog",
+  "python_collectors": ["probe/colectores/joblog_v2.py", "probe/colectores/job_info.py"],
+  "created_at": "2026-09-05T00:00:00Z"
+}

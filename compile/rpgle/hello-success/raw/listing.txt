@@ -1,0 +1,177 @@
+>> RPGLE qrpglesrc/hello.rpgle -> c3s411/hello
+system -s "CHGATR OBJ('qrpglesrc/hello.rpgle') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hello.rpgle') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hello.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hello) SRCTYPE(RPGLE)"
+liblist -a c3s411; \
+system "CRTBNDRPG PGM(c3s411/hello) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)"
+CPI2119:  AUT and USRPRF parameter values were ignored.
+CPI2121:  Replaced object HELLO type *PGM was moved to QRPLOBJ.
+RNS9304:  Program HELLO placed in library C3S411. 00 highest severity. Created on 26-09-11 at 14:59:58.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:58        Page      1
+   Command  . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . :   HELLO
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . :   HELLO
+   Source File  . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . :     C3S411
+     CCSID  . . . . . . . . . . . :     273
+   Text 'description' . . . . . . :
+   Last Change  . . . . . . . . . :   26-09-11  14:59:58
+   Generation severity level  . . :   10
+   Default activation group . . . :   *YES
+   Compiler options . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . :   *SOURCE
+   Debug encryption key . . . . . :   *NONE
+   Output . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . :   *NONE
+   Source listing indentation . . :   *NONE
+   Type conversion options  . . . :   *NONE
+   Sort sequence  . . . . . . . . :   *HEX
+   Language identifier  . . . . . :   *JOBRUN
+   Replace program  . . . . . . . :   *YES
+   User profile . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . :   *NONE
+   Target release . . . . . . . . :   *CURRENT
+   Allow null values  . . . . . . :   *NO
+   Define condition names . . . . :   *NONE
+   Enable performance collection  :   *PEP
+   Profiling data . . . . . . . . :   *NOCOL
+   Licensed Internal Code options :
+   Generate program interface . . :   *NO
+   Include directory  . . . . . . :
+   Preprocessor options . . . . . :   *NONE
+   Require prototype for export . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:58        Page      2
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1 **free                                                                                                    000000     000100
+      2 // ============================================================                                           000000     000200
+      3 // Programa : HELLO                                                                                       000000     000300
+      4 // Tipo     : RPGLE (*PGM)                                                                                000000     000400
+      5 // Desc     : Hola Mundo simple - Ejemplo basico RPGLE ILE                                                000000     000500
+      6 // Autor    : Proyecto Hola Mundo - IBM i                                                                 000000     000600
+      7 // Usa      : DSPLY (salida en pantalla / joblog)                                                         000000     000700
+      8 // Compila  : CRTBNDRPG PGM(HELLO) SRCFILE(QRPGLESRC)                                                     000000     000800
+      9 // ============================================================                                           000000     000900
+     10 ctl-opt dftactgrp(*no) actgrp(*new)                                                                       000000     001000
+     11         option(*srcstmt:*nodebugio)                                                                       000000     001100
+ 001200         datfmt(*iso)                                                                                      000000     001200
+ 001300         timfmt(*iso);                                                                                     000000     001300
+ 001400                                                                                                           000000     001400
+         *--------------------------------------------------------------------*
+         * Compiler Options in Effect:                                        *
+         *--------------------------------------------------------------------*
+         *  Text 'description' . . . . . . . :                                *
+         *  Generation severity level  . . . :   10                           *
+         *  Default activation group . . . . :   *NO                          *
+         *  Compiler options . . . . . . . . :   *XREF      *GEN              *
+         *                                       *NOSECLVL  *SHOWCPY          *
+         *                                       *EXPDDS    *EXT              *
+         *                                       *NOSHOWSKP *SRCSTMT          *
+         *                                       *NODEBUGIO *UNREF            *
+         *                                       *EVENTF                      *
+         *  Optimization level . . . . . . . :   *NONE                        *
+         *  Source listing indentation . . . :   *NONE                        *
+         *  Type conversion options  . . . . :   *NONE                        *
+         *  Sort sequence  . . . . . . . . . :   *HEX                         *
+         *  Language identifier  . . . . . . :   *JOBRUN                      *
+         *  User profile . . . . . . . . . . :   *USER                        *
+         *  Authority  . . . . . . . . . . . :   *LIBCRTAUT                   *
+         *  Truncate numeric . . . . . . . . :   *YES                         *
+         *  Fix numeric  . . . . . . . . . . :   *NONE                        *
+         *  Allow null values  . . . . . . . :   *NO                          *
+         *  Storage model . . .  . . . . . . :   *SNGLVL                      *
+         *  Binding directory from Command . :   *NONE                        *
+         *  Binding directory from Source  . :   *NONE                        *
+         *  Activation group . . . . . . . . :   *NEW                         *
+         *  Enable performance collection  . :   *PEP                         *
+         *  Profiling data . . . . . . . . . :   *NOCOL                       *
+         *  Generate program interface . . . :   *NO                          *
+         *  Require prototype for export . . :   *NO                          *
+         *--------------------------------------------------------------------*
+ 001500 dcl-s mensaje varchar(52);                                                                                000000     001500
+ 001600                                                                                                           000000     001600
+ 001700 mensaje = 'Hola Mundo desde IBM i con RPGLE!';                                                            000000     001700
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:58        Page      3
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 001800                                                                                                           000000     001800
+ 001900 dsply mensaje;                                                                                            000000     001900
+ 002000                                                                                                           000000     002000
+ 002100 dsply 'Programa HELLO ejecutado correctamente.';                                                          000000     002100
+ 002200                                                                                                           000000     002200
+ 002300 *inlr = *on;                                                                                              000000     002300
+ 002400 return;                                                                                                   000000     002400
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:58        Page      4
+           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+  Msg id  Sv   Statement    Message text
+ *RNF7089 00        001600  RPG provides Separate-Indicator area for file HELLO.
+  * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:58        Page      5
+                           C r o s s   R e f e r e n c e
+       File and Record References:
+          File              Device             References (D=Defined)
+            Record
+          No references in the source.
+       Global Field References:
+          Field             Attributes         References (D=Defined M=Modified)
+          *INLR             N(1)                   005000M
+          MENSAJE           A(52)                  001500D     001700M     001900
+                            VARYING(2)
+       Indicator References:
+          Indicator                            References (D=Defined M=Modified)
+          LR                                       005000M
+        * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:58        Page      6
+                       E x t e r n a l   R e f e r e n c e s
+       Statically bound procedures:
+          Procedure                            References
+          No references in the source.
+       Imported fields:
+          Field             Attributes         Defined
+          No references in the source.
+       Exported fields:
+          Field             Attributes         Defined
+          No references in the source.
+    * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:59        Page      7
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+ *RNF7031 00      1 The name or indicator is not referenced.
+ *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO             PUB400     26-09-11 14:59:59        Page      8
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        2
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        2
+   Source Totals:
+     Records . . . . . . . . . . . . :       24
+     Specifications  . . . . . . . . :       10
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       13
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Program HELLO placed in library C3S411. 00 highest severity. Created on 26-09-11 at 14:59:58.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

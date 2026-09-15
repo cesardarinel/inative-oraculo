@@ -1,0 +1,9 @@
+{
+  "host": "pub400.com",
+  "port": 22,
+  "user": "MIUSUARIO",
+  "password": "MIPASS",
+  "keyfile": "",
+  "lib": "TESTINAT",
+  "ccsid": 37
+}

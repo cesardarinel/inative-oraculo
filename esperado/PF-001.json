@@ -1,0 +1,110 @@
+{
+  "contrato_version": 1,
+  "fixture": "PF-001",
+  "ibmi": {
+    "host": "DEVSYS",
+    "release": "7.5",
+    "ccsid": 37
+  },
+  "observables": [
+    {
+      "kind": "display",
+      "name": "screen",
+      "value": {
+        "rows": 24,
+        "cols": 80,
+        "cursor": [
+          7,
+          20
+        ],
+        "fields": [
+          {
+            "name": "INPUT",
+            "row": 7,
+            "col": 20,
+            "len": 20,
+            "usage": "both",
+            "value": "",
+            "attrs": {
+              "color": "green",
+              "input": true,
+              "mdta": false,
+              "protected": false
+            }
+          }
+        ],
+        "indicators": {},
+        "response_key": ""
+      }
+    },
+    {
+      "kind": "joblog",
+      "name": "mensajes",
+      "value": [
+        {
+          "id": "CPF1124",
+          "sev": 0,
+          "text": "Job JOB1 iniciado en el sistema simulado DEVSYS"
+        },
+        {
+          "id": "CPF0000",
+          "sev": 0,
+          "text": "Usuario DEVUSER; biblioteca actual MYAPP"
+        },
+        {
+          "id": "CPC2198",
+          "sev": 0,
+          "text": "Biblioteca TESTPF añadida a la LIBL"
+        },
+        {
+          "id": "CPC2103",
+          "sev": 0,
+          "text": "Biblioteca TESTPF creada - texto: Biblioteca TESTPF"
+        },
+        {
+          "id": "CPC2105",
+          "sev": 0,
+          "text": "Archivo QTEMP/WORK creado"
+        }
+      ]
+    },
+    {
+      "kind": "return",
+      "name": "rc",
+      "value": 0
+    },
+    {
+      "kind": "libl",
+      "name": "libl",
+      "value": [
+        "MYAPP",
+        "MYDATA",
+        "QGPL",
+        "TESTPF",
+        "QTEMP",
+        "QSYS"
+      ]
+    },
+    {
+      "kind": "objects",
+      "name": "objects",
+      "value": [
+        "MYAPP/HOLA *PGM",
+        "MYAPP/HOLADSPF *DSPF",
+        "MYAPP/INDTEST *DSPF",
+        "MYAPP/INDTESTPGM *PGM",
+        "MYAPP/LIBEDIT *DSPF",
+        "MYAPP/LIBEDITPGM *PGM",
+        "MYDATA/CUSTOMER *PF",
+        "QSYS/DSPLIB *DSPF",
+        "QSYS/TESTPF *LIB",
+        "QSYS/WRKLIBPDM *DSPF",
+        "QTEMP/INDTESTPGM *PGM",
+        "QTEMP/LIBEDIT *PGM",
+        "QTEMP/TEMPWORK *PF",
+        "QTEMP/WORK *FILE",
+        "TESTPF/TESTPF *LIB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+>> SQLRPGLE qrpglesrc/hellos.sqlrpgle -> c3s411/hellos
+system -s "CHGATR OBJ('qrpglesrc/hellos.sqlrpgle') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hellos.sqlrpgle') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hellos.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hellos) SRCTYPE(SQLRPGLE)"
+liblist -a c3s411; \
+system "CRTSQLRPGI OBJ(c3s411/hellos) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hellos) COMMIT(*NONE) DBGVIEW(*SOURCE) OBJTYPE(*PGM) REPLACE(*YES) RPGPPOPT(*LVL2) COMPILEOPT('OPTION(*EVENTF)')"
+CPC7301:  File QSQLPRE created in library QTEMP.
+CPC7305:  Member HELLOS added to file QSQLPRE in QTEMP.
+CPC3201:  Member HELLOS file QSQLPRE in QTEMP changed.
+RNS9307:  Diagnostic check of source is complete. Highest severity is 00.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+CPC7301:  File QSQLTEMP1 created in library QTEMP.
+CPC7305:  Member HELLOS added to file QSQLTEMP1 in QTEMP.
+CPI2119:  AUT and USRPRF parameter values were ignored.
+CPI2121:  Replaced object HELLOS type *PGM was moved to QRPLOBJ.
+RNS9304:  Program HELLOS placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:45:12.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOS            PUB400     26-09-11 15:45:12        Page      1
+   Command  . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . :   HELLOS
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . :   HELLOS
+   Source File  . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :
+   Last Change  . . . . . . . . . :   26-09-11  15:45:12
+   Generation severity level  . . :   10
+   Default activation group . . . :   *YES
+   Compiler options . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . :   *SOURCE
+   Debug encryption key . . . . . :   *NONE
+   Output . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . :   *NONE
+   Source listing indentation . . :   *NONE
+   Type conversion options  . . . :   *HEX
+   Language identifier  . . . . . :   *JOB
+   Replace program  . . . . . . . :   *YES
+   User profile . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . :   *NONE
+   Target release . . . . . . . . :   V7R5M0
+   Allow null values  . . . . . . :   *NO
+   Define condition names . . . . :   *NONE
+   Enable performance collection  :   *PEP
+   Profiling data . . . . . . . . :   *NOCOL
+   Licensed Internal Code options :
+   Generate program interface . . :   *NO
+   Include directory  . . . . . . :
+   Preprocessor options . . . . . :   *NONE
+   Require prototype for export . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOS            PUB400     26-09-11 15:45:12        Page      2
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1 **free                                                                                                    000000     000100
+      2 // ============================================================                                           000000     000200
+      3 // Programa : HELLOS                                                                                      000000     000300
+      4 // Tipo     : SQLRPGLE (*PGM) con DSPF + SQL embebido                                                     000000     000400
+      5 // Desc     : Hola Mundo interactivo 5250 con SQL.                                                        000000     000500
+      6 //            Reusa la pantalla HELLO (formato FMT01), la MISMA                                           000000     000600
+      7 //            que usan C, C++, COBOL, RPG y CL.                                                           000000     000700
+      8 //            Los datos de usuario/fecha/hora/sistema se obtienen                                         000000     000800
+      9 //            con SQL embebido (sysibm.sysdummy1).                                                        000000     000900
+     10 // Compila  : CRTSQLRPGI OBJ(HELLOS) SRCFILE(QRPGLESRC)                                                   000000     001000
+     11 //            COMMIT(*NONE) OBJTYPE(*PGM)                                                                 000000     001100
+     12 // Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     001200
+     13 // Ejecuta  : CALL PGM(HELLOS)  (sesion 5250 interactiva)                                                 000000     001300
+     14 // ============================================================                                                      001400
+     15 ctl-opt dftactgrp(*no) actgrp(*new)                                                                       000000     001500
+     16         option(*srcstmt:*nodebugio)                                                                       000000     001600
+     17         datfmt(*iso)                                                                                      000000     001700
+     18         timfmt(*iso);                                                                                     000000     001800
+     19                                                                                                           000000     001900
+     20 dcl-f hello workstn;                                                                                      000000     002000
+     21                                                                                                           000000     002100
+     22 exec sql set option commit = *none,                                                                       000000     002200
+     23                     datfmt = *iso,                                                                        000000     002300
+     24                     timfmt = *iso,                                                                        000000     002400
+     25                     closqlcsr = *endmod;                                                                  000000     002500
+     26                                                                                                           000000     002600
+     27 // Campos del DSPF FMT01 (externos):                                                                      000000     002700
+     28 // NOMBRE 30A B, SALUDO 50A O, USUARIO 10A O,                                                             000000     002800
+     29 // FECHA 8A O, HORA 8A O, PROGLEN 10A O                                                                   000000     002900
+     30                                                                                                           000000     003000
+     31 dcl-s wUsuario varchar(18) inz('');                                                                       000000     003100
+     32 dcl-s wSysName varchar(18) inz('');                                                                       000000     003200
+     33 dcl-s wFecha   date inz(d'2026-01-01');                                                                   000000     003300
+     34 dcl-s wHora    time inz(t'00.00.00');                                                                     000000     003400
+     35                                                                                                           000000     003500
+     36 // Datos del sistema via SQL (una sola vez al inicio)                                                     000000     003600
+     37 exec sql                                                                                                  000000     003700
+     38   select current_user,                                                                                    000000     003800
+     39          current_date,                                                                                    000000     003900
+     40          current_time,                                                                                    000000     004000
+     41          current_server                                                                                   000000     004100
+     42     into :wUsuario,                                                                                       000000     004200
+     43          :wFecha,                                                                                         000000     004300
+     44          :wHora,                                                                                          000000     004400
+     45          :wSysName                                                                                        000000     004500
+     46   from sysibm.sysdummy1;                                                                                  000000     004600
+     47                                                                                                           000000     004700
+     48 proglen = 'SQLRPGLE';                                                                                     000000     004800
+     49 usuario = %trim(wUsuario);                                                                                000000     004900
+     50 fecha = %char(wFecha:*iso0);                                                                              000000     005000
+     51 hora  = %char(wHora:*hms0);                                                                               000000     005100
+     52 saludo = 'Hola Mundo SQLRPGLE! Sist: ' + %trim(wSysName);                                                 000000     005200
+     53                                                                                                           000000     005300
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOS            PUB400     26-09-11 15:45:12        Page      3
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+     54 dou (*in03 or *in12);                                                                                     000000     005400
+     55   exfmt fmt01;                                                                                            000000     005500
+     56   if (*in03 or *in12);                                                                                    000000     005600
+     57     leave;                                                                                                000000     005700
+     58   endif;                                                                                                  000000     005800
+     59                                                                                                           000000     005900
+     60   // Refrescar datos del sistema con SQL en cada ENTER                                                    000000     006000
+     61   exec sql                                                                                                000000     006100
+     62     select current_user,                                                                                  000000     006200
+     63            current_date,                                                                                  000000     006300
+     64            current_time                                                                                   000000     006400
+     65       into :wUsuario,                                                                                     000000     006500
+     66            :wFecha,                                                                                       000000     006600
+     67            :wHora                                                                                         000000     006700
+     68     from sysibm.sysdummy1;                                                                                000000     006800
+     69                                                                                                           000000     006900
+     70   usuario = %trim(wUsuario);                                                                              000000     007000
+     71   fecha = %char(wFecha:*iso0);                                                                            000000     007100
+     72   hora  = %char(wHora:*hms0);                                                                             000000     007200
+     73                                                                                                           000000     007300
+     74   if (%trim(nombre) = '');                                                                                000000     007400
+     75     saludo = 'Hola Mundo! Ingresa tu nombre. (SQLRPGLE)';                                                 000000     007500
+     76   else;                                                                                                   000000     007600
+     77     saludo = 'Hola, ' + %trim(nombre) + '! Bienvenido. (SQLRPGLE)';                                       000000     007700
+     78   endif;                                                                                                  000000     007800
+     79 enddo;                                                                                                    000000     007900
+     80                                                                                                           000000     008000
+     81 *inlr = *on;                                                                                                         008100
+     82 return;                                                                                                   000000     008200
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOS            PUB400     26-09-11 15:45:12        Page      4
+ Line   <---------------------- Data Records -------------------------------------------------------------->      Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10      Date   Id  Number
+                        C o m p i l e   T i m e   D a t a
+     * * * * *   E N D   O F   C O M P I L E   T I M E   D A T A   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOS            PUB400     26-09-11 15:45:12        Page      5
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLOS            PUB400     26-09-11 15:45:12        Page      6
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        0
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        0
+   Source Totals:
+     Records . . . . . . . . . . . . :       82
+     Specifications  . . . . . . . . :       52
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       29
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Diagnostic check of source is complete. Highest severity is 00.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

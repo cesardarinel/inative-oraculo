@@ -1,0 +1,192 @@
+>> RPG   qrpglesrc/hello_rpg.rpg -> c3s411/hello_rpg
+system -s "CHGATR OBJ('qrpglesrc/hello_rpg.rpg') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hello_rpg.rpg') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hello_rpg.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hello_rpg) SRCTYPE(RPGLE)"
+liblist -a c3s411; \
+system "CRTBNDRPG PGM(c3s411/hello_rpg) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello_rpg) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)"
+RNS9304:  Program HELLO_RPG placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:52:14.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      1
+   Command  . . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . . :   HELLO_RPG
+     Library  . . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . . :   HELLO_RPG
+   Source File  . . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . . :     C3S411
+   CCSID  . . . . . . . . . . . . . :     273
+   Text 'description' . . . . . . . :
+   Last Change  . . . . . . . . . . :   26-09-11 15:52:14
+   Generation severity level  . . . :   10
+   Default activation group . . . . :   *YES
+   Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . . :   *SOURCE
+   Debug encryption key . . . . . . :   *NONE
+   Output . . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . . :   *NONE
+   Source listing indentation . . . :   *NONE
+   Type conversion options  . . . . :   *HEX
+   Language identifier  . . . . . . :   *JOBRUN
+   Replace program  . . . . . . . . :   *YES
+   User profile . . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . . :   *NONE
+   Target release . . . . . . . . . :   *CURRENT
+   Allow null values  . . . . . . . :   *NO
+   Define condition names . . . . . :   *NONE
+   Enable performance collection  . :   *PEP
+   Profiling data . . . . . . . . . :   *NOCOL
+   Licensed Internal Code options . :
+   Generate program interface . . . :   *NO
+   Include directory  . . . . . . . :
+   Preprocessor options . . . . . . :   *NONE
+   Require prototype for export . . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      2
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1  * ============================================================                                           000000     000100
+      2  * Programa : HELLORPG                                                                                    000000     000200
+      3  * Tipo     : RPG formato fijo ILE (*PGM)                                                                 000000     000300
+      4  * Desc     : Hola Mundo interactivo 5250 en RPG fijo.                                                    000000     000400
+      5  *            Reusa la pantalla HELLO (formato FMT01), la MISMA                                           000000     000500
+      6  *            que usan RPGLE, C, C++, COBOL, SQLRPG y CL.                                                 000000     000600
+      7  * Compila  : CRTBNDRPG PGM(HELLORPG) SRCFILE(QRPGLESRC)                                                  000000     000700
+      8  *            (SRCTYPE RPGLE: RPG fijo ILE)                                                               000000     000800
+      9  * Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     000900
+     10  * Ejecuta  : CALL PGM(HELLORPG)  (sesion 5250 interactiva)                                               000000     001000
+     11  * ============================================================                                           000000     001100
+     12  * Archivo de pantalla (combinado, externo)                                                               000000     001200
+     13 FHELLO     CF   E             WORKSTN                                                                     000000     001300
+     14  * Bucle interactivo: ENTER saluda, F3/F12 sale                                                           000000     001400
+         *--------------------------------------------------------------------------------------------*
+         *                               RPG name         External name                               *
+         * File name. . . . . . . . . :  HELLO            C3S411/HELLO                                *
+         * Record format(s) . . . . . :  FMT01            FMT01                                       *
+         *--------------------------------------------------------------------------------------------*
+     15=IFMT01                                                                                                              1000001
+         *--------------------------------------------------------------------------------------------*                     1
+         * RPG record format  . . . . :  FMT01                                                        *                     1
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     1
+         *--------------------------------------------------------------------------------------------*                     1
+     16=I                             A    1   30  NOMBRE                                                                   1000002
+     17 C                   EVAL      PROGLEN = 'RPG'                                                             000000     001500
+     18 C                   EVAL      USUARIO = 'RPG'                                                             000000     001600
+     19 C                   EVAL      FECHA = %CHAR(%DATE():*ISO0)                                                000000     001700
+     20 C                   EVAL      HORA = %CHAR(%TIME():*HMS0)                                                 000000     001800
+     21 C                   EVAL      SALUDO = 'Hola Mundo RPG!'                                                  000000     001900
+     22 C                   DOW       *IN03 = *OFF AND *IN12 = *OFF                                     B01       000000     002000
+     23 C                   EXFMT     FMT01                                                              01       000000     002100
+     24 C                   IF        *IN03 = *ON OR *IN12 = *ON                                        B02       000000     002200
+     25 C                   LEAVE                                                                        02       000000     002300
+     26 C                   ENDIF                                                                       E02       000000     002400
+     27 C                   IF        %TRIM(NOMBRE) = ''                                                B02       000000     002500
+     28 C                   EVAL      SALUDO = 'Hola! Ingresa nombre (RPG)'                              02       000000     002600
+     29 C                   ELSE                                                                        X02       000000     002700
+     30 C                   EVAL      SALUDO = 'Hola, ' + %TRIM(NOMBRE) + ' RPG'                         02       000000     002800
+     31 C                   ENDIF                                                                       E02       000000     002900
+     32 C                   EVAL      FECHA = %CHAR(%DATE():*ISO0)                                       01       000000     003000
+     33 C                   EVAL      HORA = %CHAR(%TIME():*HMS0)                                        01       000000     003100
+     34 C                   ENDDO                                                                       E01       000000     003200
+     35 C                   EVAL      *INLR = *ON                                                                 000000     003300
+     36=OFMT01                                                                                                              2000001
+         *--------------------------------------------------------------------------------------------*                     2
+         * RPG record format  . . . . :  FMT01                                                        *                     2
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      3
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     2
+         *--------------------------------------------------------------------------------------------*                     2
+     37=O                       NOMBRE              30A CHAR       30                                                       2000002
+     38=O                       SALUDO              80A CHAR       50                                                       2000003
+     39=O                       USUARIO             90A CHAR       10                                                       2000004
+     40=O                       FECHA               98A CHAR        8                                                       2000005
+     41=O                       HORA               106A CHAR        8                                                       2000006
+     42=O                       PROGLEN            116A CHAR       10                                                       2000007
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      4
+           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+  Msg id  Sv   Statement    Message text
+ *RNF7089 00     13 001300  RPG provides Separate-Indicator area for file HELLO.
+  * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                  O u t p u t   B u f f e r   P o s i t i o n s
+ Line   Start End   Field or Constant
+ Number Pos   Pos
+     37     1    30 NOMBRE
+     38    31    80 SALUDO
+     39    81    90 USUARIO
+     40    91    98 FECHA
+     41    99   106 HORA
+     42   107   116 PROGLEN
+  * * * * *   E N D   O F   O U T P U T   B U F F E R   P O S I T I O N   *  * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      5
+                           C r o s s   R e f e r e n c e
+       File and Record References:
+          File              Device             References (D=Defined)
+            Record
+          HELLO             WORKSTN                13D
+            FMT01                                  13D     15      23      36
+       Global Field References:
+          Field             Attributes         References (D=Defined M=Modified)
+          *INLR             N(1)                   35M
+          *IN03             N(1)                   22      24
+          *IN12             N(1)                   22      24
+          FECHA             A(8)                   19M     32M     40
+          HORA              A(8)                   20M     33M     41
+          NOMBRE            A(30)                  16M     27      30      37
+          PROGLEN           A(10)                  17M     42
+          SALUDO            A(50)                  21M     28M     30M     38
+          USUARIO           A(10)                  18M     39
+       Indicator References:
+          Indicator                            References (D=Defined M=Modified)
+          03                                       15D     22      24
+          12                                       15D     22      24
+          LR                                       35M
+        * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      6
+                       E x t e r n a l   R e f e r e n c e s
+       Statically bound procedures:
+          Procedure                            References
+          No references in the source.
+       Imported fields:
+          Field             Attributes         Defined
+          No references in the source.
+       Exported fields:
+          Field             Attributes         Defined
+          No references in the source.
+    * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      7
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+ *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:52:14        Page      8
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        1
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        1
+   Source Totals:
+     Records . . . . . . . . . . . . :       42
+     Specifications  . . . . . . . . :       29
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       13
+          * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+ Program HELLO_RPG placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:52:14.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

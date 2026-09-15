@@ -1,0 +1,31 @@
+{
+  "id": "dspjob-001",
+  "name": "DSPJOB pantalla",
+  "source": {},
+  "setup": [],
+  "input": [
+    {
+      "type": "command",
+      "value": "DSPJOB"
+    }
+  ],
+  "compare": {
+    "display": true,
+    "display_literals": true,
+    "display_grid": true,
+    "screens": true,
+    "fields": true,
+    "joblog": true,
+    "return": true
+  },
+  "ignore": [
+    "cursor",
+    "job.number",
+    "job.name",
+    "timestamp",
+    "display.literals[*].color",
+    "display_raw"
+  ],
+  "transport": "5250",
+  "timeout": 15
+}

@@ -1,0 +1,58 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "RPG-COMPILE-SUCCESS-001",
+    "name": "rpg compile success",
+    "language": "RPGLE",
+    "operation": "CRTBNDRPG",
+    "category": "rpgle/compile/success"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CRTBNDRPG PGM(QTEMP/HELLO) SRCSTMF('/home/QTEMP/hello.rpgle') OPTION(*EVENTF)",
+    "program": "HELLO",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": true,
+    "exit_code": 0
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNS9304",
+        "message_type": "COMPLETION",
+        "severity": 0,
+        "message_text": "Program HELLO placed in library QTEMP. 00 highest severity.",
+        "message_second_level_text": "Created on 2026-09-05 at 10:00:00.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CPC0701",
+        "message_type": "COMPLETION",
+        "severity": 0,
+        "message_text": "Compilation completed successfully.",
+        "message_second_level_text": "",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 7,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "RPG-COMPILE-SUCCESS-001",
+    "language": "RPGLE",
+    "command": "CRTBNDRPG PGM(QTEMP/HELLO) SRCSTMF('/home/QTEMP/hello.rpgle') OPTION(*EVENTF)",
+    "expected_result": "success",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

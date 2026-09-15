@@ -1,0 +1,1 @@
+{"origin": "user terminal transcript 2026-09-11 15:50:37 (gmake BUILDLIB=c3s411)", "host": "IBM i V7R5M0 (5770SS1), PUB400", "command": "CRTBNDCL ... (ver transcript)", "note": "Segunda variante CL (QDATE LEN(6), IF simplificados, *BCAT, GOTO LOOP): mismo fallo 2xCPD0043 en RTVSYSVAL (líneas 1900/2100). Cross Ref con labels LOOP/FIN. Summary 10 buckets. Fuente STMF pendiente."}

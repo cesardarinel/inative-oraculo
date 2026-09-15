@@ -1,0 +1,25 @@
+{
+  "id": "CMD-OBJECT-NOT-FOUND-001",
+  "name": "command object not found — dltf",
+  "source": {
+    "command": "DLTF FILE(QTEMP/NOTEXIST)",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "DLTF FILE(QTEMP/NOTEXIST)"
+    }
+  ]
+}

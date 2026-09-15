@@ -1,0 +1,142 @@
+{
+  "contrato_version": 1,
+  "fixture": "EDTLIB-001",
+  "ibmi": {
+    "host": "DEVSYS",
+    "release": "7.5",
+    "ccsid": 37
+  },
+  "observables": [
+    {
+      "kind": "display",
+      "name": "screen",
+      "value": {
+        "rows": 24,
+        "cols": 80,
+        "cursor": [
+          5,
+          26
+        ],
+        "fields": [
+          {
+            "name": "LIB",
+            "row": 3,
+            "col": 26,
+            "len": 10,
+            "usage": "output",
+            "value": "EDITLIB",
+            "attrs": {
+              "color": "green",
+              "input": false,
+              "mdta": true,
+              "protected": true
+            }
+          },
+          {
+            "name": "TEXT",
+            "row": 5,
+            "col": 26,
+            "len": 50,
+            "usage": "both",
+            "value": "Texto editado via EDTLIB",
+            "attrs": {
+              "color": "green",
+              "input": true,
+              "mdta": true,
+              "protected": false
+            }
+          },
+          {
+            "name": "ASP",
+            "row": 7,
+            "col": 26,
+            "len": 2,
+            "usage": "output",
+            "value": "",
+            "attrs": {
+              "color": "green",
+              "input": false,
+              "mdta": false,
+              "protected": true
+            }
+          }
+        ],
+        "indicators": {},
+        "response_key": "ENTER"
+      }
+    },
+    {
+      "kind": "joblog",
+      "name": "mensajes",
+      "value": [
+        {
+          "id": "CPF1124",
+          "sev": 0,
+          "text": "Job JOB1 iniciado en el sistema simulado DEVSYS"
+        },
+        {
+          "id": "CPF0000",
+          "sev": 0,
+          "text": "Usuario DEVUSER; biblioteca actual MYAPP"
+        },
+        {
+          "id": "CPC2198",
+          "sev": 0,
+          "text": "Biblioteca EDITLIB añadida a la LIBL"
+        },
+        {
+          "id": "CPC2103",
+          "sev": 0,
+          "text": "Biblioteca EDITLIB creada - texto: Texto antes de editar"
+        },
+        {
+          "id": "CPF0001",
+          "sev": 0,
+          "text": "EDTLIB: editando EDITLIB"
+        },
+        {
+          "id": "CPC2103",
+          "sev": 0,
+          "text": "Biblioteca EDITLIB modificada - nuevo texto: Texto editado via EDTLIB"
+        }
+      ]
+    },
+    {
+      "kind": "return",
+      "name": "rc",
+      "value": 0
+    },
+    {
+      "kind": "libl",
+      "name": "libl",
+      "value": [
+        "MYAPP",
+        "MYDATA",
+        "QGPL",
+        "EDITLIB",
+        "QTEMP",
+        "QSYS"
+      ]
+    },
+    {
+      "kind": "objects",
+      "name": "objects",
+      "value": [
+        "EDITLIB/EDITLIB *LIB",
+        "MYAPP/HOLA *PGM",
+        "MYAPP/HOLADSPF *DSPF",
+        "MYAPP/INDTEST *DSPF",
+        "MYAPP/INDTESTPGM *PGM",
+        "MYAPP/LIBEDIT *DSPF",
+        "MYAPP/LIBEDITPGM *PGM",
+        "MYDATA/CUSTOMER *PF",
+        "QSYS/DSPLIB *DSPF",
+        "QSYS/EDITLIB *LIB",
+        "QSYS/WRKLIBPDM *DSPF",
+        "QTEMP/INDTESTPGM *PGM",
+        "QTEMP/LIBEDIT *PGM",
+        "QTEMP/TEMPWORK *PF"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "MSG-COMPLETION-001",
+  "name": "completion message",
+  "source": {
+    "command": "SNDPGMMSG MSG('Job completed') TOPGMQ(*PRV) MSGTYPE(*COMP)",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "SNDPGMMSG MSG('Job completed') TOPGMQ(*PRV) MSGTYPE(*COMP)"
+    }
+  ]
+}

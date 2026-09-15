@@ -1,0 +1,68 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "EVFEVENT-001",
+    "name": "EVFEVENT compiler listing coordinates",
+    "language": "RPGLE",
+    "operation": "CRTBNDRPG",
+    "category": "evfevent"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CRTBNDRPG PGM(QTEMP/BADIF) SRCSTMF('/tmp/badif.rpgle') OPTION(*EVENTF)",
+    "program": "BADIF",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNF7031",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "The END-IF operation is missing.",
+        "message_second_level_text": "Correct the source and recompile.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "RNS9310",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "Compilation failed. Program BADIF not created.",
+        "message_second_level_text": "Check listing.",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 3,
+    "final_count": 5,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "EVFEVENT-001",
+    "language": "RPGLE",
+    "command": "CRTBNDRPG PGM(QTEMP/BADIF) SRCSTMF('/tmp/badif.rpgle')",
+    "expected_result": "compile_error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  },
+  "evfevent": [
+    {
+      "file": "BADIF.RPGLE",
+      "line": 7,
+      "col": 10,
+      "sev": 30,
+      "code": "RNF7031",
+      "text": "The END-IF operation is missing."
+    }
+  ]
+}

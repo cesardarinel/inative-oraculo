@@ -1,0 +1,56 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "CMD-ERR-002",
+    "name": "CALL objeto inexistente",
+    "language": "CMD",
+    "operation": "CALL",
+    "category": "commands/object-not-found"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/NOTEXIST)",
+    "program": "NOTEXIST",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPF9801",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "Object NOTEXIST in library QTEMP not found.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CPF0006",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Errors occurred in command.",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 7,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "CMD-ERR-002",
+    "language": "CMD",
+    "command": "CALL PGM(QTEMP/NOTEXIST)",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

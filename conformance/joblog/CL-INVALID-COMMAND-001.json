@@ -1,0 +1,25 @@
+{
+  "id": "CL-INVALID-COMMAND-001",
+  "name": "cl invalid command",
+  "source": {
+    "command": "FOOBAR PGM(QTEMP/X)",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "FOOBAR PGM(QTEMP/X)"
+    }
+  ]
+}

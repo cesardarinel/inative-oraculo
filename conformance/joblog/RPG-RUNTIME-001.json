@@ -1,0 +1,19 @@
+{
+  "id": "RPG-RUNTIME-001",
+  "name": "divide_by_zero — runtime exception RPG",
+  "source": {
+    "rpgle": "fixtures/RPGLE/runtime/divide_by_zero.rpgle"
+  },
+  "compare": {
+    "screens": false
+  },
+  "ignore": ["timestamp", "job_number", "job_name", "system_name", "message_key"],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "CALL PGM(QTEMP/DIVZERO)"
+    }
+  ],
+  "db": null
+}

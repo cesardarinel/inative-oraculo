@@ -1,0 +1,13 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.validos.hola-dsply",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T22:27:18+00:00",
+    "exit_code": 0,
+    "ok": true
+  },
+  "observables": []
+}

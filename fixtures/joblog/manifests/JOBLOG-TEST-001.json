@@ -1,0 +1,13 @@
+{
+  "id": "JOBLOG-TEST-001",
+  "language": "CL",
+  "source_file": "",
+  "command": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+  "execution": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+  "expected_result": "unknown",
+  "ibmi_version": "7.5",
+  "captured_at": "2026-09-05T19:20:08+00:00",
+  "fixture_status": "CAPTURED",
+  "recorder_version": "1.0.0",
+  "notes": "delta 0 msgs; initial 0 -> final 0"
+}

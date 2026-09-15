@@ -1,0 +1,269 @@
+>> SQLRPG   qrpglesrc/hello_sql.sqlrpg -> c3s411/hello_sql
+system -s "CHGATR OBJ('qrpglesrc/hello_sql.sqlrpg') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hello_sql.sqlrpg') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hello_sql.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hello_sql) SRCTYPE(SQLRPGLE)"
+liblist -a c3s411; \
+system "CRTSQLRPGI OBJ(c3s411/hello_sql) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello_sql) COMMIT(*NONE) DBGVIEW(*SOURCE) OBJTYPE(*PGM) REPLACE(*YES) RPGPPOPT(*LVL2) COMPILEOPT('OPTION(*EVENTF)')"
+CPC7301:  File QSQLPRE created in library QTEMP.
+CPC7305:  Member HELLO_SQL added to file QSQLPRE in QTEMP.
+CPC3201:  Member HELLO_SQL file QSQLPRE in QTEMP changed.
+RNS9307:  Diagnostic check of source is complete. Highest severity is 00.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+CPC7301:  File QSQLTEMP1 created in library QTEMP.
+CPC7305:  Member HELLO_SQL added to file QSQLTEMP1 in QTEMP.
+RNS9304:  Program HELLO_SQL placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:50:33.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      1
+   Command  . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . :   HELLO_SQL
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . :   HELLO_SQL
+   Source File  . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :
+   Last Change  . . . . . . . . . :   26-09-11 15:50:33
+   Generation severity level  . . :   10
+   Default activation group . . . :   *YES
+   Compiler options . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . :   *ALL
+   Debug encryption key . . . . . :   *NONE
+   Output . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . :   *NONE
+   Source listing indentation . . :   *NONE
+   Type conversion options  . . . :   *HEX
+   Language identifier  . . . . . :   *JOB
+   Replace program  . . . . . . . :   *YES
+   User profile . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . :   *NONE
+   Target release . . . . . . . . :   V7R5M0
+   Allow null values  . . . . . . :   *NO
+   Define condition names . . . . :   *NONE
+   Enable performance collection  :   *PEP
+   Profiling data . . . . . . . . :   *NOCOL
+   Licensed Internal Code options :
+   Generate program interface . . :   *NO
+   Include directory  . . . . . . :
+   Preprocessor options . . . . . :   *NONE
+   Require prototype for export . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      2
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1  * ============================================================                                           000000     000100
+      2  * Programa : HELLOSQL                                                                                    000000     000200
+      3  * Tipo     : SQLRPG formato fijo ILE (*PGM)                                                              000000     000300
+      4  * Desc     : Hola Mundo interactivo 5250 con SQL en RPG fijo.                                            000000     000400
+      5  *            Reusa la pantalla HELLO (formato FMT01), la MISMA                                           000000     000500
+      6  *            que usan RPGLE, C, C++, COBOL, RPG y CL.                                                    000000     000600
+      7  *            El usuario del job se obtiene con SQL embebido.                                             000000     000700
+      8  * Compila  : CRTSQLRPGI OBJ(HELLOSQL) SRCFILE(QRPGLESRC)                                                 000000     000800
+      9  *            COMMIT(*NONE) OBJTYPE(*PGM)                                                                 000000     000900
+     10  * Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     001000
+     11  * Ejecuta  : CALL PGM(HELLOSQL)  (sesion 5250 interactiva)                                               000000     001100
+     12  * ============================================================                                           000000     001200
+     13  * Archivo de pantalla (combinado, externo)                                                               000000     001300
+     14 FHELLO     CF   E             WORKSTN                                                                     000000     001400
+     15  * Datos iniciales + usuario via SQL embebido (formato fijo)                                              000000     001500
+     16   /SET CCSID(*CHAR:*JOBRUNMIX)                                                                                       001500
+     17   // SQL COMMUNICATION AREA                                                //SQL                                     001500
+         *--------------------------------------------------------------------------------------------*
+         *                               RPG name         External name                               *
+         * File name. . . . . . . . . :  HELLO            C3S411/HELLO                                *
+         * Record format(s) . . . . . :  FMT01            FMT01                                       *
+         *--------------------------------------------------------------------------------------------*
+     18   DCL-DS SQLCA;                                                            //SQL                                     001500
+     19     SQLCAID CHAR(8) INZ(X'0000000000000000');                              //SQL                                     001500
+     20      SQLAID CHAR(8) OVERLAY(SQLCAID);                                      //SQL                                     001500
+     21     SQLCABC INT(10);                                                       //SQL                                     001500
+     22      SQLABC BINDEC(9) OVERLAY(SQLCABC);                                    //SQL                                     001500
+     23     SQLCODE INT(10);                                                       //SQL                                     001500
+     24      SQLCOD BINDEC(9) OVERLAY(SQLCODE);                                    //SQL                                     001500
+     25     SQLERRML INT(5);                                                       //SQL                                     001500
+     26      SQLERL BINDEC(4) OVERLAY(SQLERRML);                                   //SQL                                     001500
+     27     SQLERRMC CHAR(70);                                                     //SQL                                     001500
+     28      SQLERM CHAR(70) OVERLAY(SQLERRMC);                                    //SQL                                     001500
+     29     SQLERRP CHAR(8);                                                       //SQL                                     001500
+     30      SQLERP CHAR(8) OVERLAY(SQLERRP);                                      //SQL                                     001500
+     31     SQLERR CHAR(24);                                                       //SQL                                     001500
+     32      SQLER1 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                     001500
+     33      SQLER2 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                     001500
+     34      SQLER3 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                     001500
+     35      SQLER4 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                     001500
+     36      SQLER5 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                     001500
+     37      SQLER6 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                     001500
+     38      SQLERRD INT(10) DIM(6) OVERLAY(SQLERR);                               //SQL                                     001500
+     39     SQLWRN CHAR(11);                                                       //SQL                                     001500
+     40      SQLWN0 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     41      SQLWN1 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     42      SQLWN2 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     43      SQLWN3 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     44      SQLWN4 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      3
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+     45      SQLWN5 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     46      SQLWN6 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     47      SQLWN7 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     48      SQLWN8 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     49      SQLWN9 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     50      SQLWNA CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                     001500
+     51      SQLWARN CHAR(1) DIM(11) OVERLAY(SQLWRN);                              //SQL                                     001500
+     52     SQLSTATE CHAR(5);                                                      //SQL                                     001500
+     53      SQLSTT CHAR(5) OVERLAY(SQLSTATE);                                     //SQL                                     001500
+     54   END-DS SQLCA;                                                            //SQL                                     001500
+     55   DCL-PR SQLROUTE_CALL EXTPGM(SQLROUTE);                                   //SQL                                     001500
+     56     CA LIKEDS(SQLCA);                                                      //SQL                                     001500
+     57     *N BINDEC(4) OPTIONS(*NOPASS);                                         //SQL                                     001500
+     58     *N CHAR(1) OPTIONS(*NOPASS);                                           //SQL                                     001500
+     59   END-PR SQLROUTE_CALL;                                                    //SQL                                     001500
+     60   DCL-PR SQLOPEN_CALL EXTPGM(SQLOPEN);                                     //SQL                                     001500
+     61     CA LIKEDS(SQLCA);                                                      //SQL                                     001500
+     62     *N BINDEC(4);                                                          //SQL                                     001500
+     63   END-PR SQLOPEN_CALL;                                                     //SQL                                     001500
+     64   DCL-PR SQLCLSE_CALL EXTPGM(SQLCLSE);                                     //SQL                                     001500
+     65     CA LIKEDS(SQLCA);                                                      //SQL                                     001500
+     66     *N BINDEC(4);                                                          //SQL                                     001500
+     67   END-PR SQLCLSE_CALL;                                                     //SQL                                     001500
+     68   DCL-PR SQLCMIT_CALL EXTPGM(SQLCMIT);                                     //SQL                                     001500
+     69     CA LIKEDS(SQLCA);                                                      //SQL                                     001500
+     70     *N BINDEC(4);                                                          //SQL                                     001500
+     71   END-PR SQLCMIT_CALL;                                                     //SQL                                     001500
+     72   /RESTORE CCSID(*CHAR)                                                                                              001500
+     73   DCL-C SQLROUTE CONST('QSYS/QSQROUTE');                                   //SQL                                     001500
+     74   DCL-C SQLOPEN CONST('QSYS/QSQROUTE');                                    //SQL                                     001500
+     75   DCL-C SQLCLSE CONST('QSYS/QSQLCLSE');                                    //SQL                                     001500
+     76   DCL-C SQLCMIT CONST('QSYS/QSQLCMIT');                                    //SQL                                     001500
+     77   DCL-C SQFRD CONST(2);                                                    //SQL                                     001500
+     78   DCL-C SQFCRT CONST(8);                                                   //SQL                                     001500
+     79   DCL-C SQFOVR CONST(16);                                                  //SQL                                     001500
+     80   DCL-C SQFAPP CONST(32);                                                  //SQL                                     001500
+     81 D                 DS                                                       SELECT                                    002000
+     82 D  SQL_00000              1      2B 0 INZ(128)                             length of header                          002000
+     83 D  SQL_00001              3      4B 0 INZ(1)                               statement number                          002000
+     84 D  SQL_00002              5      8U 0 INZ(0)                               invocation mark                           002000
+     85 D  SQL_00003              9      9A   INZ('0') CCSID(*JOBRUNMIX)           data is okay                              002000
+     86 D  SQL_00004             10    128A   CCSID(*JOBRUNMIX)                    end of header                             002000
+     87 D  SQL_00005            129    138A   CCSID(*JOBRUNMIX)                    USUARIO                                   002000
+     88 D                 DS                                                       SELECT                                    002900
+     89 D  SQL_00006              1      2B 0 INZ(128)                             length of header                          002900
+     90 D  SQL_00007              3      4B 0 INZ(2)                               statement number                          002900
+     91 D  SQL_00008              5      8U 0 INZ(0)                               invocation mark                           002900
+     92 D  SQL_00009              9      9A   INZ('0') CCSID(*JOBRUNMIX)           data is okay                              002900
+     93 D  SQL_00010             10    128A   CCSID(*JOBRUNMIX)                    end of header                             002900
+     94 D  SQL_00011            129    138A   CCSID(*JOBRUNMIX)                    USUARIO                                   002900
+     95=IFMT01                                                                                                              1000001
+         *--------------------------------------------------------------------------------------------*                     1
+         * RPG record format  . . . . :  FMT01                                                        *                     1
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     1
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      4
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+         *--------------------------------------------------------------------------------------------*                     1
+     96=I                             A    1   30  NOMBRE                                                                   1000002
+     97 C                   EVAL      PROGLEN = 'SQLRPG'                                                                     001600
+     98 C                   EVAL      FECHA = %CHAR(%DATE():*ISO0)                                                           001700
+     99 C                   EVAL      HORA = %CHAR(%TIME():*HMS0)                                                            001800
+    100 C                   EVAL      SALUDO = 'Hola Mundo con SQLRPG!'                                                      001900
+    101 C*EXEC SQL                                                                                                           002000
+    102 C* SELECT CURRENT_USER INTO :USUARIO FROM SYSIBM.SYSDUMMY1                                                           002100
+    103 C*END-EXEC                                                                                                           002200
+    104      SQLER6 = -4;                                                          //SQL 1                                   002000
+    105      SQLROUTE_CALL(                                                        //SQL                                     002000
+    106           SQLCA                                                            //SQL                                     002000
+    107         : SQL_00000                                                        //SQL                                     002000
+    108      );                                                                    //SQL                                     002000
+    109      IF SQL_00003 = '1';                                                   //SQL                B01                  002000
+    110      EVAL USUARIO = SQL_00005;                                             //SQL                 01                  002000
+    111      ENDIF;                                                                //SQL                E01                  002000
+    112  * Bucle interactivo: ENTER saluda, F3/F12 sale                                                                      002300
+    113 C                   DOW       *IN03 = *OFF AND *IN12 = *OFF                                     B01                  002400
+    114 C                   EXFMT     FMT01                                                              01                  002500
+    115 C                   IF        *IN03 = *ON OR *IN12 = *ON                                        B02                  002600
+    116 C                   LEAVE                                                                        02                  002700
+    117 C                   ENDIF                                                                       E02                  002800
+    118 C*EXEC SQL                                                                                                           002900
+    119 C* SELECT CURRENT_USER INTO :USUARIO FROM SYSIBM.SYSDUMMY1                                                           003000
+    120 C*END-EXEC                                                                                                           003100
+    121      SQLER6 = -4;                                                          //SQL 2               01                  002900
+    122      SQLROUTE_CALL(                                                        //SQL                 01                  002900
+    123           SQLCA                                                            //SQL                 01                  002900
+    124         : SQL_00006                                                        //SQL                 01                  002900
+    125      );                                                                    //SQL                 01                  002900
+    126      IF SQL_00009 = '1';                                                   //SQL                B02                  002900
+    127      EVAL USUARIO = SQL_00011;                                             //SQL                 02                  002900
+    128      ENDIF;                                                                //SQL                E02                  002900
+    129 C                   IF        %TRIM(NOMBRE) = ''                                                B02                  003200
+    130 C                   EVAL      SALUDO = 'Ingresa tu nombre (SQLRPG)'                              02                  003300
+    131 C                   ELSE                                                                        X02                  003400
+    132 C                   EVAL      SALUDO = 'Hola ' + %TRIM(NOMBRE) + ' SQLRPG'                       02                  003500
+    133 C                   ENDIF                                                                       E02                  003600
+    134 C                   EVAL      FECHA = %CHAR(%DATE():*ISO0)                                       01                  003700
+    135 C                   EVAL      HORA = %CHAR(%TIME():*HMS0)                                        01                  003800
+    136 C                   ENDDO                                                                       E01                  003900
+    137 C                   EVAL      *INLR = *ON                                                                            004000
+    138=OFMT01                                                                                                              2000001
+         *--------------------------------------------------------------------------------------------*                     2
+         * RPG record format  . . . . :  FMT01                                                        *                     2
+         * External format  . . . . . :  FMT01 : C3S411/HELLO                                         *                     2
+         *--------------------------------------------------------------------------------------------*                     2
+    139=O                       NOMBRE              30A CHAR       30                                                       2000002
+    140=O                       SALUDO              80A CHAR       50                                                       2000003
+    141=O                       USUARIO             90A CHAR       10                                                       2000004
+    142=O                       FECHA               98A CHAR        8                                                       2000005
+    143=O                       HORA               106A CHAR        8                                                       2000006
+    144=O                       PROGLEN            116A CHAR       10                                                       2000007
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      5
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      6
+           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+  Msg id  Sv   Statement    Message text
+ *RNF7089 00     14 001400  RPG provides Separate-Indicator area for file HELLO.
+  * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                  O u t p u t   B u f f e r   P o s i t i o n   s
+ Line   Start End   Field or Constant
+ Number Pos   Pos
+    139     1    30 NOMBRE
+    140    31    80 SALUDO
+    141    81    90 USUARIO
+    142    91    98 FECHA
+    143    99   106 HORA
+    144   107   116 PROGLEN
+  * * * * *   E N D   O F   O U T P U T   B U F F E R   P O S I T I O N   *  * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      7
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+ *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:50:33        Page      8
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        1
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        1
+   Source Totals:
+     Records . . . . . . . . . . . . :      144
+     Specifications  . . . . . . . . :      120
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       22
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Program HELLO_SQL placed in library C3S411. 00 highest severity. Created on 26-09-11 at 15:50:33.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

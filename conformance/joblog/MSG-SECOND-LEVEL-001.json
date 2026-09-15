@@ -1,0 +1,14 @@
+{
+  "id": "MSG-SECOND-LEVEL-001",
+  "name": "second level text preservation",
+  "compare": {},
+  "ignore": [
+    "timestamp"
+  ],
+  "input": [
+    {
+      "type": "command",
+      "value": "SNDPGMMSG MSG('Second level test') MSGTYPE(*ESCAPE)"
+    }
+  ]
+}

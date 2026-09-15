@@ -1,0 +1,25 @@
+{
+  "id": "MSG-DIAGNOSTIC-CHAIN-001",
+  "name": "diagnostic chain — cpf9801 → cpf0006",
+  "source": {
+    "command": "CALL PGM(QTEMP/NOTEXIST2)",
+    "program": "NOTEXIST2",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "CALL PGM(QTEMP/NOTEXIST2)"
+    }
+  ]
+}

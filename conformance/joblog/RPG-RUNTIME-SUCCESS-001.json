@@ -1,0 +1,25 @@
+{
+  "id": "RPG-RUNTIME-SUCCESS-001",
+  "name": "rpg runtime success — dsply hello",
+  "source": {
+    "command": "CALL PGM(QTEMP/HELLO)",
+    "program": "HELLO",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "CALL PGM(QTEMP/HELLO)"
+    }
+  ]
+}

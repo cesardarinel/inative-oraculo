@@ -1,0 +1,13 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.sqlrpgle.copy-hostvar-lvl2",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T19:38:24-0400",
+    "exit_code": 0,
+    "ok": true
+  },
+  "observables": []
+}

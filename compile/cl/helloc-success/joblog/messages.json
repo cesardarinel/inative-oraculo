@@ -1,0 +1,1 @@
+[{"id": "CPI2119", "severity": 0, "text": "AUT and USRPRF parameter values were ignored."}, {"id": "CPI2121", "severity": 0, "text": "Replaced object HELLOC type *PGM was moved to QRPLOBJ."}, {"id": "CPC0815", "severity": 0, "text": "Program HELLOC created in library C3S411."}]

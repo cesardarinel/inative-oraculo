@@ -1,0 +1,22 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.invalidos.literal-sin-cerrar",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T23:11:44+00:00",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": [
+    {
+      "kind": "mensajes",
+      "name": "RNF7030",
+      "value": "The name or indicator *INLR is not defined.",
+      "severidad": 30,
+      "linea": 6,
+      "norm": "The name or indicator *INLR is not defined."
+    }
+  ]
+}

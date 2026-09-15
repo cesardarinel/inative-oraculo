@@ -1,0 +1,11 @@
+[
+  {
+    "screen": { "rows": 24, "cols": 80 },
+    "cursor": { "row": 6, "col": 21 },
+    "fields": [
+      { "name": "CUSTOMER_ID", "row": 5, "col": 20, "length": 10, "usage": "input", "value": "1001" }
+    ],
+    "indicators": { "01": false, "03": true },
+    "response_key": "ENTER"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "id": "RPG-COMPILE-ERROR-001",
+  "name": "rpg compile syntax error — missing endif",
+  "source": {
+    "command": "CRTBNDRPG PGM(QTEMP/BADIF) SRCSTMF('/home/QTEMP/badif.rpgle')",
+    "program": "BADIF",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "CRTBNDRPG PGM(QTEMP/BADIF) SRCSTMF('/home/QTEMP/badif.rpgle')"
+    }
+  ]
+}

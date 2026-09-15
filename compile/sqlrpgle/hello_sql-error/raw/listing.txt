@@ -1,0 +1,205 @@
+>> SQLRPG   qrpglesrc/hello_sql.sqlrpg -> c3s411/hello_sql
+system -s "CHGATR OBJ('qrpglesrc/hello_sql.sqlrpg') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hello_sql.sqlrpg') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hello_sql.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hello_sql) SRCTYPE(SQLRPGLE)"
+liblist -a c3s411; \
+system "CRTSQLRPGI OBJ(c3s411/hello_sql) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello_sql) COMMIT(*NONE) DBGVIEW(*SOURCE) OBJTYPE(*PGM) REPLACE(*YES) RPGPPOPT(*LVL2) COMPILEOPT('OPTION(*EVENTF)')"
+CPC7301:  File QSQLPRE created in library QTEMP.
+CPC7305:  Member HELLO_SQL added to file QSQLPRE in QTEMP.
+CPC3201:  Member HELLO_SQL file QSQLPRE in QTEMP changed.
+RNS9307:  Diagnostic check of source is complete. Highest severity is 00.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+CPC7301:  File QSQLTEMP1 created in library QTEMP.
+CPC7305:  Member HELLO_SQL added to file QSQLTEMP1 in QTEMP.
+SQL9001:  SQL precompile failed.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:45:13        Page      1
+   Command  . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . :   HELLO_SQL
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . :   HELLO_SQL
+   Source File  . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . :
+   Last Change  . . . . . . . . . :   26-09-11 15:45:13
+   Generation severity level  . . :   10
+   Default activation group . . . :   *YES
+   Compiler options . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . :   *ALL
+   Debug encryption key . . . . . :   *NONE
+   Output . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . :   *NONE
+   Source listing indentation . . :   *NONE
+   Type conversion options  . . . :   *HEX
+   Language identifier  . . . . . :   *JOB
+   Replace program  . . . . . . . :   *YES
+   User profile . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . :   *NONE
+   Target release . . . . . . . . :   *CURRENT
+   Allow null values  . . . . . . :   *NO
+   Define condition names . . . . :   *NONE
+   Enable performance collection  :   *PEP
+   Profiling data . . . . . . . . :   *NOCOL
+   Licensed Internal Code options :
+   Generate program interface . . :   *NO
+   Include directory  . . . . . . :
+   Preprocessor options . . . . . :   *NONE
+   Require prototype for export . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:45:13        Page      2
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1  * ============================================================                                           000000     000100
+      2  * Programa : HELLOSQL                                                                                    000000     000200
+      3  * Tipo     : SQLRPG formato fijo ILE (*PGM)                                                              000000     000300
+      4  * Desc     : Hola Mundo interactivo 5250 con SQL en RPG fijo.                                            000000     000400
+      5  *            Reusa la pantalla HELLO (formato FMT01), la MISMA                                           000000     000500
+      6  *            que usan RPGLE, C, C++, COBOL, RPG y CL.                                                    000000     000600
+      7  *            El usuario del job se obtiene con SQL embebido.                                             000000     000700
+      8  * Compila  : CRTSQLRPGI OBJ(HELLOSQL) SRCFILE(QRPGLESRC)                                                 000000     000800
+      9  *            COMMIT(*NONE) OBJTYPE(*PGM)                                                                 000000     000900
+     10  * Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     001000
+     11  * Ejecuta  : CALL PGM(HELLOSQL)  (sesion 5250 interactiva)                                               000000     001100
+     12  * ============================================================                                           000000     001200
+     13  * Archivo de pantalla (combinado, externo)                                                               000000     001300
+     14 FHELLO    CFF   E             WORKSTN                                                                     000000     001400
+     15  * Datos iniciales + usuario via SQL embebido (formato fijo)                                              000000     001500
+     16 C                     EVAL    PROGLEN = 'SQLRPG'                                                          000000     001600
+     17 C                     EVAL    FECHA = %CHAR(%DATE():*ISO0)                                                000000     001700
+     18 C                     EVAL    HORA = %CHAR(%TIME():*HMS0)                                                 000000     001800
+     19 C                     EVAL    SALUDO = 'Hola Mundo con SQLRPG!'                                           000000     001900
+     20 C/EXEC SQL                                                                                                000000     002000
+     21 C+ SELECT CURRENT_USER INTO :USUARIO FROM SYSIBM.SYSDUMMY1                                                000000     002100
+     22 C/END-EXEC                                                                                                000000     002200
+     23  * Bucle interactivo: ENTER saluda, F3/F12 sale                                                           000000     002300
+     24 C                     DOW     *IN03 = *OFF AND *IN12 = *OFF                                               000000     002400
+     25 C                     EXFMTFMT01                                                                          000000     002500
+     26 C                     IF      *IN03 = *ON OR *IN12 = *ON                                                  000000     002600
+     27 C                     LEAVE                                                                               000000     002700
+     28 C                     ENDIF                                                                               000000     002800
+     29 C/EXEC SQL                                                                                                000000     002900
+     30 C+ SELECT CURRENT_USER INTO :USUARIO FROM SYSIBM.SYSDUMMY1                                                000000     003000
+     31 C/END-EXEC                                                                                                000000     003100
+     32 C                     IF      %TRIM(NOMBRE) = ''                                                          000000     003200
+     33 C                     EVAL    SALUDO = 'Ingresa tu nombre (SQLRPG)'----                                   000000     003300
+     34 C                     ELSE                                                                                000000     003400
+     35 C                     EVAL    SALUDO = 'Hola '+%TRIM(NOMBRE)+' SQLRPG'                                    000000     003500
+     36 C                     ENDIF                                                                               000000     003600
+     37 C                     EVAL    FECHA = %CHAR(%DATE():*ISO0)                                                000000     003700
+     38 C                     EVAL    HORA = %CHAR(%TIME():*HMS0)                                                 000000     003800
+     39 C                     ENDDO                                                                               000000     003900
+     40 C                     SETON                                      LR----                                   000000     004000
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:45:13        Page      3
+ Line   <---------------------- Data Records -------------------------------------------------------------->      Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10      Date   Id  Number
+                        C o m p i l e   T i m e   D a t a
+     * * * * *   E N D   O F   C O M P I L E   T I M E   D A T A   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:45:13        Page      4
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_SQL         PUB400     26-09-11 15:45:13        Page      5
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        0
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        0
+   Source Totals:
+     Records . . . . . . . . . . . . :       40
+     Specifications  . . . . . . . . :       19
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       15
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Diagnostic check of source is complete. Highest severity is 00.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-
+ 5770ST1 V7R5M0 220415            Create SQL ILE RPG Object         HELLO_SQL                   26-09-11 15:45:13          Page     1
+ Source type...............RPG
+ Object name...............C3S411/HELLO_SQL
+ Source file...............QTEMP/QSQLPRE
+ Member....................HELLO_SQL
+ To source file............QTEMP/QSQLTEMP1
+ Options...................*XREF
+ RPG preprocessor options..*LVL2
+ Listing option............*NONE
+ Target release............V7R5M0
+ INCLUDE file..............C3S411/QRPGLESRC
+ Commit....................*NONE
+ Allow copy of data........*OPTIMIZE
+ Close SQL cursor..........*ENDACTGRP
+ Allow blocking............*ALLREAD
+ Delay PREPARE.............*NO
+ Concurrent access
+   resolution..............*DFT
+ Generation level..........10
+ Printer file..............*LIBL/QSYSPRT
+ Date format...............*JOB
+ Date separator............*JOB
+ Time format...............*HMS
+ Time separator ...........*JOB
+ Replace...................*YES
+ Relational database.......*LOCAL
+ User .....................*CURRENT
+ RDB connect method........*DUW
+ Default collection........*NONE
+ Dynamic default
+   collection..............*NO
+ Package name..............*OBJLIB/*OBJ
+ Path......................*NAMING
+ SQL rules.................*DB2
+ Created object type.......*PGM
+ Debugging view............*SOURCE
+ Debugging encryption key..*NONE
+ User profile..............*NAMING
+ Dynamic user profile......*USER
+ Sort sequence.............*JOB
+ Language ID...............*JOB
+ IBM SQL flagging..........*NOFLAG
+ ANS flagging..............*NONE
+ Text......................*SRCMBRTXT
+ Source file CCSID.........273
+ Job CCSID.................273
+ Decimal result options:
+   Maximum precision.......31
+   Maximum scale.......31
+   Minimum divide scale....0
+ DECFLOAT rounding mode....*HALFEVEN
+ Compiler options..........OPTION(*EVENTF)
+ Source member changed on 26-09-11  15:45:13
+                                                    -=* http://pub400.com *=-
+  5770ST1 V7R5M0 220415            Create SQL ILE RPG Object         HELLO_SQL                   26-09-11 15:45:13          Page     2
+                                              DIAGNOSTIC MESSAGES
+    16        C                     EVAL    PROGLEN = 'SQLRPG'                              001600
+    21        C+ SELECT CURRENT_USER INTO :USUARIO FROM SYSIBM.SYSDUMMY1                      2100
+    30        C+ SELECT CURRENT_USER INTO :USUARIO FROM SYSIBM.SYSDUMMY1                      3000
+                                                    -=* http://pub400.com *=-
+  5770ST1 V7R5M0 220415            Create SQL ILE RPG Object         HELLO_SQL                   26-09-11 15:45:13          Page     3
+                                              DIAGNOSTIC MESSAGES
+ MSG ID  SEV  RECORD  TEXT
+ SQL1001  30      14  External file definition for HELLO    C not found.
+ SQL0312  30      21  Position 35 Variable USUARIO not defined or not usable
+                      for reason code 1.
+ SQL0312  30      30  Position 35 Variable USUARIO not defined or not usable
+                      for reason code 1.
+                     Message Summary
+   Total     Info   Warning      Error   Severe  Terminal
+       3        0         0          0        3         0
+ 30 level severity errors found in source
+    40 Source records processed
+                                * * * * *  E N D  O F  L I S T I N G  * * * * *
+                                                    -=* http://pub400.com *=-
+gmake: *** [makefile:155: hello_sql.sqlrpg] Error 1

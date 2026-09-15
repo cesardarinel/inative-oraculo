@@ -1,0 +1,22 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.invalidos.dup-declarada",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T23:15:27+00:00",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": [
+    {
+      "kind": "mensajes",
+      "name": "RNF3316",
+      "value": "The item has already been defined on a Definition",
+      "severidad": 30,
+      "linea": 5,
+      "norm": "The item has already been defined on a Definition"
+    }
+  ]
+}

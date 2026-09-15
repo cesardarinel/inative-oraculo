@@ -1,0 +1,243 @@
+>> RPG   qrpglesrc/hello_rpg.rpg -> c3s411/hello_rpg
+system -s "CHGATR OBJ('qrpglesrc/hello_rpg.rpg') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qrpglesrc/hello_rpg.rpg') TOMBR('/QSYS.lib/c3s411.lib/QRPGLESRC.file/hello_rpg.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QRPGLESRC) MBR(hello_rpg) SRCTYPE(RPGLE)"
+liblist -a c3s411; \
+system "CRTBNDRPG PGM(c3s411/hello_rpg) SRCFILE(c3s411/QRPGLESRC) SRCMBR(hello_rpg) DBGVIEW(*SOURCE) REPLACE(*YES) OPTION(*EVENTF)"
+RNS9308:  Compilation stopped. Severity 30 errors found in program.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+RNS9310:  Compilation failed. Program HELLO_RPG not created in library C3S411.
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      1
+   Command  . . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     C3S41
+   Program  . . . . . . . . . . . . :   HELLO_RPG
+     Library  . . . . . . . . . . . :     C3S411
+   Text 'description' . . . . . . . :   *SRCMBRTXT
+   Source Member  . . . . . . . . . :   HELLO_RPG
+   Source File  . . . . . . . . . . :   QRPGLESRC
+     Library  . . . . . . . . . . . :     C3S411
+     CCSID  . . . . . . . . . . . . :     273
+   Text 'description' . . . . . . . :
+   Last Change  . . . . . . . . . . :   26-09-11 15:20:22
+   Generation severity level  . . . :   10
+   Default activation group . . . . :   *YES
+   Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *UNREF     *EVENTF
+   Debugging views  . . . . . . . . :   *SOURCE
+   Debug encryption key . . . . . . :   *NONE
+   Output . . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . . :   *NONE
+   Source listing indentation . . . :   *NONE
+   Type conversion options  . . . . :   *HEX
+   Language identifier  . . . . . . :   *JOBRUN
+   Replace program  . . . . . . . . :   *YES
+   User profile . . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . . :   *NONE
+   Target release . . . . . . . . . :   *CURRENT
+   Allow null values  . . . . . . . :   *NO
+   Define condition names . . . . . :   *NONE
+   Enable performance collection  . :   *PEP
+   Profiling data . . . . . . . . . :   *NOCOL
+   Licensed Internal Code options . :
+   Generate program interface . . . :   *NO
+   Include directory  . . . . . . . :
+   Preprocessor options . . . . . . :   *NONE
+   Require prototype for export . . :   *NO
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      2
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1  * ============================================================                                           000000     000100
+      2  * Programa : HELLORPG                                                                                    000000     000200
+      3  * Tipo     : RPG formato fijo ILE (*PGM)                                                                 000000     000300
+      4  * Desc     : Hola Mundo interactivo 5250 en RPG fijo.                                                    000000     000400
+      5  *            Reusa la pantalla HELLO (formato FMT01), la MISMA                                           000000     000500
+      6  *            que usan RPGLE, C, C++, COBOL, SQLRPG y CL.                                                 000000     000600
+      7  * Compila  : CRTBNDRPG PGM(HELLORPG) SRCFILE(QRPGLESRC)                                                  000000     000700
+      8  *            (SRCTYPE RPGLE: RPG fijo ILE)                                                               000000     000800
+      9  * Requiere : DSPF HELLO compilado antes (CRTDSPF)                                                        000000     001000
+     10  * Ejecuta  : CALL PGM(HELLORPG)  (sesion 5250 interactiva)                                               000000     001000
+     11  * ============================================================                                           000000     001100
+     12  * Archivo de pantalla (combinado, externo)                                                               000000     001200
+     13 FHELLO   CF     E             WORKSTN                                                                     000000     001300
+ ======>         aab
+ *RNF0289 20 a      001300  Entry contains data that is not valid; only valid data is
+                            used.
+ *RNF2003 20 b      001300  The File Type is not I, O, U, or C; defaults to O if File
+                            Designation is blank, otherwise to I.
+     14  * Bucle interactivo: ENTER saluda, F3/F12 sale                                                           000000     001400
+         *--------------------------------------------------------------------------------------------*
+         *                               RPG name         External name                               *
+         * File name. . . . . . . . . :  HELLO            C3S411/HELLO                                *
+         * Record format(s) . . . . . :  FMT01            FMT01                                       *
+         *--------------------------------------------------------------------------------------------*
+     15 C                     EVAL    PROGLEN = 'RPG'                                                             000000     001500
+ ======>                    aaaaaa
+ *RNF0262 20 a      001500  Entry not left-adjusted; defaults to left-adjusted.
+     16 C                     EVAL    USUARIO = 'RPG'                                                             000000     001600
+ ======>                    aaaaaa
+ *RNF0262 20 a      001600  Entry not left-adjusted; defaults to left-adjusted.
+     17 C                     EVAL    FECHA = %CHAR(%DATE():*ISO0)                                                000000     001700
+ ======>                    aaaaaa
+ *RNF0262 20 a      001700  Entry not left-adjusted; defaults to left-adjusted.
+     18 C                     EVAL    HORA = %CHAR(%TIME():*HMS0)                                                 000000     001800
+ ======>                    aaaaaa
+ *RNF0262 20 a      001800  Entry not left-adjusted; defaults to left-adjusted.
+     19 C                     EVAL    SALUDO = 'Hola Mundo RPG!'                                                  000000     001900
+ ======>                    aaaaaa
+ *RNF0262 20 a      001900  Entry not left-adjusted; defaults to left-adjusted.
+     20 C                     DOW     *IN03 = *OFF AND *IN12 = *OFF                                     B01       000000     002000
+ ======>                    aaaaa
+ *RNF0262 20 a      002000  Entry not left-adjusted; defaults to left-adjusted.
+     21 C                     EXFMTFMT01                                                                 01       000000     002100
+ ======>                    aaaaaaaaaa
+ ======>                    bbbbbbbbbb
+ *RNF0262 20 a      002100  Entry not left-adjusted; defaults to left-adjusted.
+ *RNF5014 30 b      002100  Operation code is not valid; specification is ignored.
+     22 C                     IF      *IN03 = *ON OR *IN12 = *ON                                        B02       000000     002200
+ ======>                    aaaa
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      3
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+ *RNF0262 20 a      002200  Entry not left-adjusted; defaults to left-adjusted.
+     23 C                     LEAVE                                                                      02       000000     002300
+ ======>                    aaaaaaa
+ *RNF0262 20 a      002300  Entry not left-adjusted; defaults to left-adjusted.
+     24 C                     ENDIF                                                                     E02       000000     002400
+ ======>                    aaaaaaa
+ *RNF0262 20 a      002400  Entry not left-adjusted; defaults to left-adjusted.
+     25 C                     IF      %TRIM(NOMBRE) = ''                                                B02       000000     002500
+ ======>                    aaaa
+ *RNF0262 20 a      002500  Entry not left-adjusted; defaults to left-adjusted.
+     26 C                     EVAL    SALUDO = 'Hola! Ingresa nombre (RPG)'                              02       000000     002600
+ ======>                    aaaaaa
+ *RNF0262 20 a      002600  Entry not left-adjusted; defaults to left-adjusted.
+     27 C                     ELSE                                                                      X02       000000     002700
+ ======>                    aaaaaa
+ *RNF0262 20 a      002700  Entry not left-adjusted; defaults to left-adjusted.
+     28 C                     EVAL    SALUDO = 'Hola, '+%TRIM(NOMBRE)+' RPG'                             02       000000     002800
+ ======>                    aaaaaa
+ *RNF0262 20 a      002800  Entry not left-adjusted; defaults to left-adjusted.
+     29 C                     ENDIF                                                                     E02       000000     002900
+ ======>                    aaaaaaa
+ *RNF0262 20 a      002900  Entry not left-adjusted; defaults to left-adjusted.
+     30 C                     EVAL    FECHA = %CHAR(%DATE():*ISO0)                                       01       000000     003000
+ ======>                    aaaaaa
+ *RNF0262 20 a      003000  Entry not left-adjusted; defaults to left-adjusted.
+     31 C                     EVAL    HORA = %CHAR(%TIME():*HMS0)                                        01       000000     003100
+ ======>                    aaaaaa
+ *RNF0262 20 a      003100  Entry not left-adjusted; defaults to left-adjusted.
+     32 C                     ENDDO                                                                     E01       000000     003200
+ ======>                    aaaaaaa
+ *RNF0262 20 a      003200  Entry not left-adjusted; defaults to left-adjusted.
+     33 C                     SETON                                      LR----                                   000000     003300
+ ======>                    aaaaaaa
+ *RNF0262 20 a      003300  Entry not left-adjusted; defaults to left-adjusted.
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      4
+           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+  Msg id  Sv Number Seq     Message text
+ *RNF7030 30     17 001700  The name or indicator FECHA is not defined.
+ *RNF7066 00     13 001300  Record-Format FMT01 not used for input or output.
+ *RNF7089 00     13 001300  RPG provides Separate-Indicator area for file HELLO.
+ *RNF7030 30     18 001800  The name or indicator HORA is not defined.
+ *RNF7030 30     25 002500  The name or indicator NOMBRE is not defined.
+ *RNF7030 30     15 001500  The name or indicator PROGLEN is not defined.
+ *RNF7030 30     19 001900  The name or indicator SALUDO is not defined.
+ *RNF7030 30     16 001600  The name or indicator USUARIO is not defined.
+ *RNF7503 30     15 001500  Expression contains an operand that is not defined.
+ *RNF7503 30     16 001600  Expression contains an operand that is not defined.
+ *RNF7503 30     17 001700  Expression contains an operand that is not defined.
+ *RNF7503 30     18 001800  Expression contains an operand that is not defined.
+ *RNF7503 30     19 001900  Expression contains an operand that is not defined.
+ *RNF7503 30     20 002000  Expression contains an operand that is not defined.
+ *RNF7503 30     22 002200  Expression contains an operand that is not defined.
+ *RNF7503 30     25 002500  Expression contains an operand that is not defined.
+ *RNF7503 30     26 002600  Expression contains an operand that is not defined.
+ *RNF7503 30     28 002800  Expression contains an operand that is not defined.
+ *RNF7503 30     30 003000  Expression contains an operand that is not defined.
+ *RNF7503 30     31 003100  Expression contains an operand that is not defined.
+ *RNF7030 30     20 002000  The name or indicator *IN03 is not defined.
+ *RNF7030 30     20 002000  The name or indicator *IN12 is not defined.
+  * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      5
+                           C r o s s   R e f e r e n c e
+       File and Record References:
+          File              Device             References (D=Defined)
+            Record
+          HELLO             WORKSTN                13D
+            FMT01                                  13D     15
+       Global Field References:
+          Field             Attributes         References (D=Defined M=Modified)
+          *IN03             N(1)                   22      24
+ *RNF7030 *IN03             **UNDEF**              20      22
+ *RNF7030 *IN12             **UNDEF**              20      22
+ *RNF7030 FECHA             **UNDEF**              17M     30M
+ *RNF7030 HORA              **UNDEF**              18M     31M
+ *RNF7030 NOMBRE            **UNDEF**              25      28
+ *RNF7030 PROGLEN           **UNDEF**              15M
+ *RNF7030 SALUDO            **UNDEF**              19M     26M     28M
+ *RNF7030 USUARIO           **UNDEF**              16M
+       Indicator References:
+          Indicator                            References (D=Defined M=Modified)
+ *RNF7031 03                                       15D
+          12                                       15D     22      24
+          LR                                       33D
+        * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      6
+                       E x t e r n a l   R e f e r e n c e s
+       Statically bound procedures:
+          Procedure                            References
+          No references in the source.
+       Imported fields:
+          Field             Attributes         Defined
+          No references in the source.
+       Exported fields:
+          Field             Attributes         Defined
+          No references in the source.
+    * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      7
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+ *RNF7031 00      1 The name or indicator is not referenced.
+ *RNF7066 00      1 Record-Format name of Externally-Described file is not used.
+ *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+ *RNF0262 20     19 Entry not left-adjusted; defaults to left-adjusted.
+ *RNF0289 20      1 Entry contains data that is not valid; only valid data is
+                    used.
+ *RNF2003 20      1 The File Type is not I, O, U, or C; defaults to O if File
+                    Designation is blank, otherwise to I.
+ *RNF5014 30      1 Operation code is not valid; specification is ignored.
+ *RNF7030 30      8 The name or indicator is not defined.
+ *RNF7503 30     12 Expression contains an operand that is not defined.
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415 RN        IBM ILE RPG             C3S411/HELLO_RPG         PUB400     26-09-11 15:20:22        Page      8
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        3
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :       21
+     Severe Error (30+)  . . . . . . :       21
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :       45
+   Source Totals:
+     Records . . . . . . . . . . . . :       33
+     Specifications  . . . . . . . . :       20
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       13
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Compilation stopped. Severity 30 errors found in program.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-
+gmake: *** [makefile:133: hello_rpg.rpg] Error 1

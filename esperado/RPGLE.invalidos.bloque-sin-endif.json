@@ -1,0 +1,22 @@
+{
+  "contrato_version": 1,
+  "fixture": "RPGLE.invalidos.bloque-sin-endif",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-25T23:11:50+00:00",
+    "exit_code": 1,
+    "ok": false
+  },
+  "observables": [
+    {
+      "kind": "mensajes",
+      "name": "RNF5177",
+      "value": "ENDyy operation missing for IF operation group at statement",
+      "severidad": 30,
+      "linea": 6,
+      "norm": "ENDyy operation missing for IF operation group at statement"
+    }
+  ]
+}

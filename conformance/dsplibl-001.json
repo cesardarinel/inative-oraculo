@@ -1,0 +1,28 @@
+{
+  "id": "dsplibl-001",
+  "name": "DSPLIBL pantalla (TN5250)",
+  "source": {},
+  "setup": [],
+  "input": [
+    { "type": "command", "value": "DSPLIBL" },
+    { "type": "key", "value": "ENTER" }
+  ],
+  "compare": {
+    "display": true,
+    "display_literals": true,
+    "display_grid": true,
+    "screens": true,
+    "fields": true,
+    "cursor": true,
+    "indicators": true
+  },
+  "ignore": [
+    "cursor",
+    "job.number",
+    "timestamp",
+    "display.literals[*].color",
+    "display_raw"
+  ],
+  "transport": "5250",
+  "timeout": 15
+}

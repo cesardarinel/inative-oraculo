@@ -1,0 +1,102 @@
+>> DSPF  qddssrc/hello.dspf -> c3s411/hello
+system -s "CHGATR OBJ('qddssrc/hello.dspf') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qddssrc/hello.dspf') TOMBR('/QSYS.lib/c3s411.lib/QDDSSRC.file/hello.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QDDSSRC) MBR(hello) SRCTYPE(DSPF)"
+liblist -a c3s411; \
+system "CRTDSPF FILE(c3s411/hello) SRCFILE(c3s411/QDDSSRC) SRCMBR(hello) REPLACE(*YES)"
+CPI2126:  AUT parameter ignored.
+CPI2121:  Replaced object HELLO type *FILE was moved to QRPLOBJ.
+CPC7301:  File HELLO created in library C3S411.
+  5770SS1 V7R5M0  220415                  Data Description               C3S411/HELLO            26-09-11 14:59:58        Page    1
+  File name . . . . . . . . . . . . . . . . . . . . . :   HELLO
+    Library name  . . . . . . . . . . . . . . . . . . :   C3S411
+  File attribute  . . . . . . . . . . . . . . . . . . :   Display
+  Source file containing DDS  . . . . . . . . . . . . :   QDDSSRC
+    Library name  . . . . . . . . . . . . . . . . . . :   C3S411
+  Source member containing DDS  . . . . . . . . . . . :   HELLO
+  Source member last changed  . . . . . . . . . . . . :   26-09-11 14:59:57
+  Source listing options  . . . . . . . . . . . . . . :   *SOURCE    *LIST      *NOSECLVL  *NOEVENTF
+  DDS generation severity level . . . . . . . . . . . :   20
+  DDS flagging severity level . . . . . . . . . . . . :   00
+  Authority . . . . . . . . . . . . . . . . . . . . . :   *LIBCRTAUT
+  Replace file  . . . . . . . . . . . . . . . . . . . :   *YES
+  Text  . . . . . . . . . . . . . . . . . . . . . . . :
+  Compiler  . . . . . . . . . . . . . . . . . . . . . :   IBM System i5 Data Description Processor
+                                       Data Description Source
+  SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8  Date
+     100       A* Pantalla HELLO compartida por los 7 lenguajes ILE
+     200       A* Formato FMT01. Salir con F3/F12.
+     300       A                                      DSPSIZ(24 80 *DS3)
+     400       A                                      INDARA
+     500       A                                      CA03(03 'Salir')
+     600       A                                      CA12(12 'Cancelar')
+     700       A          R FMT01
+     800       A                                  2  2'HOLA MUNDO IBM i - 7 lenguajes'
+     900       A                                  3  2'=================================='
+    1000       A                                  4  2'=================================='
+    1100       A                                  6  5'Misma pantalla DSPF reusada por:'
+    1200       A                                  7 10'- C / C++ / COBOL'
+    1300       A                                  8 10'- RPG / RPGLE / SQLRPG'
+    1400       A                                  9 10'- SQLRPGLE / CL / CLLE'
+    1500       A                                 11  5'Tu nombre..:'
+    1600       A            NOMBRE        30A  B 11 18
+    1700       A                                 13  5'Saludo:'
+    1800       A            SALUDO        50A  O 13 13
+    1900       A                                 15  5'Usuario:'
+    2000       A            USUARIO       10A  O 15 14
+    2100       A                                 15 30'Fecha:'
+    2200       A            FECHA          8A  O 15 37
+    2300       A                                 15 50'Hora:'
+    2400       A            HORA           8A  O 15 56
+    2500       A                                 17  5'Lenguaje:'
+    2600       A            PROGLEN       10A  O 17 15
+    2700       A                                 19  5'F3=Salir  F12=Cancelar'
+    2800       A                                 20  5'ENTER para saludar'
+    2900       A                                 22  2'Archivo: HELLO  Formato: FMT01'
+                          * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770SS1 V7R5M0  220415                  Data Description               C3S411/HELLO            26-09-11 14:59:58        Page    2
+                                           Expanded Source
+                                                                                           Field       Buffer position
+  SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8 length        Out     In
+     300                                              DSPSIZ(*DS3) INDARA +
+     500                                              CA03(03 'Salir') +
+     600                                              CA12(12 'Cancelar')
+                * Indicator Area:
+                *  *IN03        *IN12
+     700                  R FMT01
+     800                                          2  2'HOLA MUNDO IBM i - 7 lenguajes'        30
+     900                                          3  2'==================================-    34
+     900                                              '
+    1000                                          4  2'==================================-    34
+    1000                                              '
+    1100                                          6  5'Misma pantalla DSPF reusada por:'      32
+    1200                                          7 10'- C / C++ / COBOL'                     17
+    1300                                          8 10'- RPG / RPGLE / SQLRPG'                22
+    1400                                          9 10'- SQLRPGLE / CL / CLLE'                22
+    1500                                         11  5'Tu nombre..:'                          12
+    1600                    NOMBRE        30A  B 11 18                                        30            1       1
+    1700                                         13  5'Saludo:'                                7
+    1800                    SALUDO        50A  O 13 13                                        50           31
+    1900                                         15  5'Usuario:'                               8
+    2000                    USUARIO       10A  O 15 14                                        10           81
+    2100                                         15 30'Fecha:'                                 6
+    2200                    FECHA          8A  O 15 37                                         8           91
+    2300                                         15 50'Hora:'                                  5
+    2400                    HORA           8A  O 15 56                                         8           99
+    2500                                         17  5'Lenguaje:'                              9
+    2600                    PROGLEN       10A  O 17 15                                        10          107
+    2700                                         19  5'F3=Salir  F12=Cancelar'                22
+    2800                                         20  5'ENTER para saludar'                    18
+    2900                                         22  2'Archivo: HELLO  Formato: FMT01'        30
+                  * * * * *   E N D   O F   E X P A N D E D   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770SS1 V7R5M0  220415                  Data Description               C3S411/HELLO            26-09-11 14:59:58        Page    3
+                                           Message Summary
+     Total          Informational          Warning        Error       Severe
+                        (0-9)              (10-19)       (20-29)      (30-99)
+         0                 0                    0             0            0
+ * CPC7301      00               Message . . . . :   File HELLO created in library C3S411.
+                          * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-

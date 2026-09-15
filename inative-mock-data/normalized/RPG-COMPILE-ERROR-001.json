@@ -1,0 +1,58 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "RPG-COMPILE-ERROR-001",
+    "name": "rpg compile syntax error — missing endif",
+    "language": "RPGLE",
+    "operation": "CRTBNDRPG",
+    "category": "rpgle/compile/syntax-error"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CRTBNDRPG PGM(QTEMP/BADIF) SRCSTMF('/home/QTEMP/badif.rpgle')",
+    "program": "BADIF",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNF7031",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "The END-IF operation is missing.",
+        "message_second_level_text": "Factor 2 is required for this operation. Correct the source and recompile.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "RNS9310",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "Compilation failed. Program BADIF not created in library QTEMP.",
+        "message_second_level_text": "Check the listing for details.",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 7,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "RPG-COMPILE-ERROR-001",
+    "language": "RPGLE",
+    "command": "CRTBNDRPG PGM(QTEMP/BADIF) SRCSTMF('/home/QTEMP/badif.rpgle')",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

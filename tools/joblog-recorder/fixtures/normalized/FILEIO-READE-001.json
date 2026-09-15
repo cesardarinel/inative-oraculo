@@ -1,0 +1,58 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "FILEIO-READE-001",
+    "name": "READE key equal",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "fileio/reade"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/READE01)",
+    "program": "READE01",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNX1221",
+        "message_type": "ESCAPE",
+        "severity": 40,
+        "message_text": "Record with key NOKEY not found.",
+        "message_second_level_text": "",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CPF5027",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "READE: Record not found.",
+        "message_second_level_text": "",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 7,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "FILEIO-READE-001",
+    "language": "RPGLE",
+    "command": "CALL PGM(QTEMP/READE01)",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

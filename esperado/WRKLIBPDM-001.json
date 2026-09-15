@@ -1,0 +1,122 @@
+{
+  "contrato_version": 1,
+  "fixture": "WRKLIBPDM-001",
+  "ibmi": {
+    "host": "DEVSYS",
+    "release": "7.5",
+    "ccsid": 37
+  },
+  "observables": [
+    {
+      "kind": "display",
+      "name": "screen",
+      "value": {
+        "rows": 24,
+        "cols": 80,
+        "cursor": [
+          10,
+          5
+        ],
+        "fields": [
+          {
+            "name": "CMD",
+            "row": 21,
+            "col": 7,
+            "len": 60,
+            "usage": "both",
+            "value": "",
+            "attrs": {
+              "color": "green",
+              "input": true,
+              "mdta": false,
+              "protected": false
+            }
+          }
+        ],
+        "indicators": {},
+        "response_key": "ENTER"
+      }
+    },
+    {
+      "kind": "joblog",
+      "name": "mensajes",
+      "value": [
+        {
+          "id": "CPF1124",
+          "sev": 0,
+          "text": "Job JOB1 iniciado en el sistema simulado DEVSYS"
+        },
+        {
+          "id": "CPF0000",
+          "sev": 0,
+          "text": "Usuario DEVUSER; biblioteca actual MYAPP"
+        },
+        {
+          "id": "CPC2198",
+          "sev": 0,
+          "text": "Biblioteca LIBA añadida a la LIBL"
+        },
+        {
+          "id": "CPC2103",
+          "sev": 0,
+          "text": "Biblioteca LIBA creada - texto: Lib A"
+        },
+        {
+          "id": "CPC2198",
+          "sev": 0,
+          "text": "Biblioteca LIBB añadida a la LIBL"
+        },
+        {
+          "id": "CPC2103",
+          "sev": 0,
+          "text": "Biblioteca LIBB creada - texto: Lib B"
+        },
+        {
+          "id": "CPF0001",
+          "sev": 0,
+          "text": "WRKLIBPDM: lista de bibliotecas"
+        }
+      ]
+    },
+    {
+      "kind": "return",
+      "name": "rc",
+      "value": 0
+    },
+    {
+      "kind": "libl",
+      "name": "libl",
+      "value": [
+        "MYAPP",
+        "MYDATA",
+        "QGPL",
+        "LIBA",
+        "LIBB",
+        "QTEMP",
+        "QSYS"
+      ]
+    },
+    {
+      "kind": "objects",
+      "name": "objects",
+      "value": [
+        "LIBA/LIBA *LIB",
+        "LIBB/LIBB *LIB",
+        "MYAPP/HOLA *PGM",
+        "MYAPP/HOLADSPF *DSPF",
+        "MYAPP/INDTEST *DSPF",
+        "MYAPP/INDTESTPGM *PGM",
+        "MYAPP/LIBEDIT *DSPF",
+        "MYAPP/LIBEDITPGM *PGM",
+        "MYDATA/CUSTOMER *PF",
+        "QSYS/DSPLIB *DSPF",
+        "QSYS/LIBA *LIB",
+        "QSYS/LIBB *LIB",
+        "QSYS/WRKLIBPDM *DSPF",
+        "QTEMP/INDTESTPGM *PGM",
+        "QTEMP/LIBEDIT *PGM",
+        "QTEMP/TEMPWORK *PF"
+      ]
+    }
+  ]
+}

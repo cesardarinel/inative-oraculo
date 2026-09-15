@@ -1,0 +1,13 @@
+{
+  "id": "JOBLOG-REAL-003",
+  "language": "RPGLE",
+  "source_file": "",
+  "command": "CALL PGM(C3S411/DIVZERO)",
+  "execution": "CALL PGM(C3S411/DIVZERO)",
+  "expected_result": "unknown",
+  "ibmi_version": "7.5",
+  "captured_at": "2026-09-05T19:27:14+00:00",
+  "fixture_status": "CAPTURED",
+  "recorder_version": "1.0.0",
+  "notes": "delta 2 msgs; initial 1 -> final 1"
+}

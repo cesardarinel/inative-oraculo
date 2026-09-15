@@ -1,0 +1,1 @@
+{"ref": null, "note": "Sin captura IBM i todavía. Supuesto documentado: IBM i acepta DATFMT(*ISO) (formato ISO nativo); iNative lo acepta y convierte a C (DATE char[11] YYYY-MM-DD). Al capturar en máquina real, confirmar success/object/messages y poner measured:true."}

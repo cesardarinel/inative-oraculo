@@ -1,0 +1,50 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "FILEIO-WRITE-DUP-001",
+    "name": "WRITE duplicate key",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "fileio/write"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/WRITE01)",
+    "program": "WRITE01",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPF5033",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "WRITE: Duplicate key KEY1 in file MYFILE.",
+        "message_second_level_text": "Duplicate key.",
+        "ordinal_position": 1
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 6,
+    "delta_count": 1
+  },
+  "manifest": {
+    "id": "FILEIO-WRITE-DUP-001",
+    "language": "RPGLE",
+    "command": "CALL PGM(QTEMP/WRITE01)",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

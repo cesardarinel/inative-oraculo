@@ -1,0 +1,161 @@
+>> CLLE  qclsrc/helloc.clle -> c3s411/helloc
+system -s "CHGATR OBJ('qclsrc/helloc.clle') ATR(*CCSID) VALUE(1252)"
+CPFB414:  Attributes changed for 1 objects.  0 objects not changed.
+system -qi "CPYFRMSTMF FROMSTMF('qclsrc/helloc.clle') TOMBR('/QSYS.lib/c3s411.lib/QCLSRC.file/helloc.mbr') MBROPT(*REPLACE) STMFCCSID(*STMF) ENDLINFMT(*ALL) TABEXPN(*YES)"
+system -qi "CHGPFM FILE(c3s411/QCLSRC) MBR(helloc) SRCTYPE(CLLE)"
+liblist -a c3s411; \
+system "CRTBNDCL PGM(c3s411/helloc) SRCFILE(c3s411/QCLSRC) SRCMBR(helloc) DBGVIEW(*SOURCE) REPLACE(*YES)"
+CPI2119:  AUT and USRPRF parameter values were ignored.
+CPI2121:  Replaced object HELLOC type *PGM was moved to QRPLOBJ.
+CPC0815:  Program HELLOC created in library C3S411.
+  5770SS1 V7R5M0  220415                  Control Language         C3S411/HELLOC         PUB400 26-09-11 15:52:21         Page    1
+  Program . . . . . . . . . . . . . . . . . . . :   HELLOC
+    Library . . . . . . . . . . . . . . . . . . :     C3S411
+  Source file . . . . . . . . . . . . . . . . . :   QCLSRC
+    Library  . . . . . . . . . . . . . . . . . . :     C3S411
+  Source member name  . . . . . . . . . . . . . :   HELLOC   26-09-11 15:52:21
+  Source printing options . . . . . . . . . . . :   *XREF  *NOSECLVL  *NOEVENTF  *NODOSLTLVL
+  User profile  . . . . . . . . . . . . . . . . :   *USER
+  Program logging . . . . . . . . . . . . . . . :   *JOB
+  Allow RTVCLSRC command  . . . . . . . . . . . :   *YES
+  Default activation group  . . . . . . . . . . :   *YES
+  Activation group  . . . . . . . . . . . . . . :
+  Replace program  . . . . . . . . . . . . . . . :   *YES
+  Target release  . . . . . . . . . . . . . . . :   V7R5M0
+  Authority  . . . . . . . . . . . . . . . . . . :   *LIBCRTAUT
+  Sort sequence  . . . . . . . . . . . . . . . . :   *HEX
+  Language identifier  . . . . . . . . . . . . . :   *JOBRUN
+  Text  . . . . . . . . . . . . . . . . . . . . :
+  Optimization  . . . . . . . . . . . . . . . . :   *NONE
+  Debugging view  . . . . . . . . . . . . . . . :   *SOURCE
+  Debug encryption key  . . . . . . . . . . . . :   *NONE
+  Enable performance collection . . . . . . . . :   *PEP
+  Storage model . . . . . . . . . . . . . . . . :   *SNGLVL
+  Compiler  . . . . . . . . . . . . . . . . . . :   IBM Control Language Compiler
+                                       Control Language Source
+  SEQNBR  *...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+.  DATE
+     100-              /* ================================================== */
+     200-              /* Programa : HELLOC                                */
+     300-              /* Tipo     : CLLE (*PGM)                            */
+     400-              /* Desc     : Hola Mundo - Menu principal CLLE.      */
+     500-              /*            Llama a los 7 lenguajes ILE, que a su  */
+     600-              /*            vez reusan la MISMA pantalla HELLO:    */
+     700-              /*            *RPGLE *RPG *SQL *C *CPP *CBL *CL       */
+     800-              /*            (los interactivos requieren 5250)      */
+     900-              /* Compila  : CRTBNDCL PGM(HELLOC) SRCFILE(QCLSRC)   */
+    1000-              /* Ejecuta  : CALL PGM(HELLOC)                       */
+    1100-              /*            CALL PGM(HELLOC) PARM('*RPG') etc.      */
+    1200-              /* ================================================== */
+    1300-              PGM        PARM(&MODO)
+    1400-
+    1500-              DCL        VAR(&MODO) TYPE(*CHAR) LEN(10)
+    1600-              MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERROR))
+    1700-
+    1800-              /* Si no se pasa parametro, modo *ALL */
+    1900-              IF         COND(&MODO *EQ ' ') THEN(CHGVAR &MODO '*ALL')
+    2000-
+    2100-              SNDPGMMSG  MSG('HOLA MUNDO - 7 lenguajes ILE') MSGTYPE(*COMP)
+    2200-
+    2300-              /* --- RPGLE batch (DSPLY, funciona sin 5250) --- */
+    2400-              IF COND((&MODO = '*ALL') *OR (&MODO = '*RPGLE')) THEN(DO)
+    2500-                SNDPGMMSG  MSG('Ejecutando HELLO') MSGTYPE(*COMP)
+    2600-                CALL       PGM(HELLO)
+                                                    -=* http://pub400.com *=-
+  5770SS1 V7R5M0  220415                  Control Language         C3S411/HELLOC         PUB400 26-09-11 15:52:21         Page      2
+                                       Control Language Source
+  SEQNBR  *...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+.  DATE
+    2700-                MONMSG     MSGID(CPF0000)
+    2800-              ENDDO
+    2900-
+    3000-              /* --- RPGLE interactivo (misma pantalla HELLO) --- */
+    3100-              IF COND((&MODO = '*ALL') *OR (&MODO = '*DSPF')) THEN(DO)
+    3200-                SNDPGMMSG  MSG('Ejecutando HELLOD') MSGTYPE(*COMP)
+    3300-                CALL       PGM(HELLOD)
+    3400-                MONMSG     MSGID(CPF0000)
+    3500-              ENDDO
+    3600-
+    3700-              /* --- RPG fijo ILE (misma pantalla HELLO) --- */
+    3800-              IF COND((&MODO = '*ALL') *OR (&MODO = '*RPG')) THEN(DO)
+    3900-                SNDPGMMSG  MSG('Ejecutando HELLORPG') MSGTYPE(*COMP)
+    4000-                CALL       PGM(HELLORPG)
+    4100-                MONMSG     MSGID(CPF0000)
+    4200-              ENDDO
+    4300-
+    4400-              /* --- SQLRPGLE + SQLRPG fijo (misma pantalla) --- */
+    4500-              IF COND((&MODO = '*ALL') *OR (&MODO = '*SQL')) THEN(DO)
+    4600-                SNDPGMMSG  MSG('Ejecutando HELLOS') MSGTYPE(*COMP)
+    4700-                CALL       PGM(HELLOS)
+    4800-                MONMSG     MSGID(CPF0000)
+    4900-                SNDPGMMSG  MSG('Ejecutando HELLOSQL') MSGTYPE(*COMP)
+    5000-                CALL       PGM(HELLOSQL)
+    5100-                MONMSG     MSGID(CPF0000)
+    5200-              ENDDO
+    5300-
+    5400-              /* --- ILE C (misma pantalla HELLO) --- */
+    5500-              IF COND((&MODO = '*ALL') *OR (&MODO = '*C')) THEN(DO)
+    5600-                SNDPGMMSG  MSG('Ejecutando HELLO_C') MSGTYPE(*COMP)
+    5700-                CALL       PGM(HELLO_C)
+    5800-                MONMSG     MSGID(CPF0000)
+    5900-              ENDDO
+    6000-
+    6100-              /* --- ILE C++ (misma pantalla HELLO) --- */
+    6200-              IF COND((&MODO = '*ALL') *OR (&MODO = '*CPP')) THEN(DO)
+    6300-                SNDPGMMSG  MSG('Ejecutando HELLOCPP') MSGTYPE(*COMP)
+    6400-                CALL       PGM(HELLOCPP)
+    6500-                MONMSG     MSGID(CPF0000)
+    6600-              ENDDO
+    6700-
+    6800-              /* --- ILE COBOL (misma pantalla HELLO) --- */
+    6900-              IF COND((&MODO = '*ALL') *OR (&MODO = '*CBL')) THEN(DO)
+    7000-                SNDPGMMSG  MSG('Ejecutando HELLOCBL') MSGTYPE(*COMP)
+    7100-                CALL       PGM(HELLOCBL)
+    7200-                MONMSG     MSGID(CPF0000)
+    7300-              ENDDO
+    7400-
+    7500-              /* --- CL (misma pantalla HELLO) --- */
+    7600-              IF COND((&MODO = '*ALL') *OR (&MODO = '*CL')) THEN(DO)
+    7700-                SNDPGMMSG  MSG('Ejecutando HELLOCL') MSGTYPE(*COMP)
+    7800-                CALL       PGM(HELLOCL)
+    7900-                MONMSG     MSGID(CPF0000)
+                                                    -=* http://pub400.com *=-
+  5770SS1 V7R5M0  220415                  Control Language         C3S411/HELLOC         PUB400 26-09-11 15:52:21         Page      3
+                                       Control Language Source
+  SEQNBR  *...+... 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7 ...+... 8 ...+... 9 ...+.  DATE
+    8000-              ENDDO
+    8100-
+    8200-              SNDPGMMSG  MSG('Hola Mundo ILE completado!') MSGTYPE(*COMP)
+    8300-              GOTO       CMDLBL(FIN)
+    8400-
+    8500-  ERROR:      SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) +
+    8600-                            MSGDTA('Error en HELLOC') MSGTYPE(*ESCAPE)
+    8700-  FIN:        ENDPGM
+                                * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415                  Control Language         C3S411/HELLOC         PUB400 26-09-11 15:52:21         Page      4
+                                           Cross Reference
+  Declared Variables
+  Name                        Defined     Type            Length      References
+  &MODO                         1500      *CHAR              10          1300   1900   1900   2400   2400   3100   3100   3800   3800
+                                                                         4500   4500   5500   5500   6200   6200   6900   6900   7600
+                                                                         7600
+  Defined Labels
+  Label            Defined     References
+  ERROR              8500        1600
+  FIN                8700        8300
+                      * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    -=* http://pub400.com *=-
+  5770WDS V7R5M0  220415                  Control Language         C3S411/HELLOC         PUB400 26-09-11 15:52:21         Page      5
+                                           Message Summary
+                Severity
+  Total         0-9  10-19  20-29  30-39  40-49  50-59  60-69  70-79  80-89  90-99
+      0           0      0      0      0      0      0      0      0      0      0
+  Program HELLOC created in library C3S411 on 26-09-11 at 15:52:22.
+  Program HELLOC created in library C3S411. Maximum error severity 00.
+                                * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                  * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    -=* http://pub400.com *=-
+========================================
+ Build completado en lib c3s411
+ Objetos: hello hello_c hello_cbl hello_cl hello_cpp hello_rpg hello_sql helloc hellod hellos
+ (*FILE HELLO + 10 *PGM, 1 sola pantalla)
+========================================

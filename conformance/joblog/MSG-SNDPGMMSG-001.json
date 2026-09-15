@@ -1,0 +1,13 @@
+{
+  "id": "MSG-SNDPGMMSG-001",
+  "name": "SNDPGMMSG informational — flujo mensaje programa",
+  "compare": {},
+  "ignore": ["timestamp", "job_number", "job_name", "system_name"],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "SNDPGMMSG MSG('HELLO FROM PROGRAM') TOPGMQ(*PRV) MSGTYPE(*INFO)"
+    }
+  ]
+}

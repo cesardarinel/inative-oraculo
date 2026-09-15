@@ -1,0 +1,50 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "FILEIO-SETGT-001",
+    "name": "SETGT success",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "fileio/setgt"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/SETGT01)",
+    "program": "SETGT01",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": true,
+    "exit_code": 0
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPC2206",
+        "message_type": "COMPLETION",
+        "severity": 0,
+        "message_text": "SETGT positioning successful.",
+        "message_second_level_text": "",
+        "ordinal_position": 1
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 6,
+    "delta_count": 1
+  },
+  "manifest": {
+    "id": "FILEIO-SETGT-001",
+    "language": "RPGLE",
+    "command": "CALL PGM(QTEMP/SETGT01)",
+    "expected_result": "success",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

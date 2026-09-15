@@ -1,0 +1,17 @@
+{
+  "contrato_version": 1,
+  "fixture": "CATALOGO.C3S411",
+  "ibmi": {
+    "host": "pub400.com",
+    "release": "7.5",
+    "ccsid": 37,
+    "capturado": "2026-08-28T20:39:42+00:00"
+  },
+  "observables": [
+    {
+      "kind": "return",
+      "name": "rc",
+      "value": 0
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "FILEIO-READ-EOF-001",
+    "name": "READ EOF",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "fileio/read"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CALL PGM(QTEMP/READEOF)",
+    "program": "READEOF",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": true,
+    "exit_code": 0
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPF5001",
+        "message_type": "INFORMATIONAL",
+        "severity": 0,
+        "message_text": "READ: End of file reached for MYFILE.",
+        "message_second_level_text": "",
+        "ordinal_position": 1
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 6,
+    "delta_count": 1
+  },
+  "manifest": {
+    "id": "FILEIO-READ-EOF-001",
+    "language": "RPGLE",
+    "command": "CALL PGM(QTEMP/READEOF)",
+    "expected_result": "success",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "HELLO-5250-001",
+  "name": "Pantalla básica equivalente en IBM i e iNative",
+  "source": {
+    "rpgle": "./src/HELLO.rpgle",
+    "dspf": "./src/HELLO.dspf"
+  },
+  "input": [
+    { "type": "text", "field": "CUSTOMER_ID", "value": "1001" },
+    { "type": "key", "value": "ENTER" },
+    { "type": "key", "value": "F3" }
+  ],
+  "compare": {
+    "screens": true,
+    "fields": true,
+    "cursor": true,
+    "attributes": true,
+    "indicators": true,
+    "response_key": true
+  },
+  "ignore": [
+    "job.number",
+    "timestamp"
+  ]
+}

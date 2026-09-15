@@ -1,0 +1,47 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "JOBLOG-REAL-002",
+    "name": "MCH1211 real via listing",
+    "language": "RPGLE",
+    "operation": "CALL",
+    "category": "rpgle/runtime/divide-by-zero"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "job_type": "",
+    "job_subtype": "",
+    "system_name": "${SYSTEM_NAME}",
+    "source": "CONFIG_FALLBACK"
+  },
+  "operation": {
+    "command": "CALL PGM(C3S411/DIVZERO)",
+    "program": "",
+    "library": "C3S411",
+    "extra": {
+      "listing_preview": "CPC2198: Current library changed to C3S411.\r\nCEE9901: Application error.  MCH1211 unmonitored by DIVZERO at statement 0000000007, instruction X'0000'.\r\n\n"
+    }
+  },
+  "result": {
+    "success": false,
+    "exit_code": 255
+  },
+  "joblog": {
+    "messages": [],
+    "initial_count": 0,
+    "final_count": 0,
+    "delta_count": 0
+  },
+  "manifest": {
+    "id": "JOBLOG-REAL-002",
+    "language": "RPGLE",
+    "command": "CALL PGM(C3S411/DIVZERO)",
+    "expected_result": "unknown",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T19:26:23+00:00",
+    "fixture_status": "CAPTURED"
+  }
+}

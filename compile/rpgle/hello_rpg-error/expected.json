@@ -1,0 +1,236 @@
+{
+ "case": "hello_rpg-error",
+ "language": "RPGLE",
+ "success": false,
+ "object_created": false,
+ "max_severity": 30,
+ "messages": [
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 17
+  },
+  {
+   "id": "RNF7066",
+   "severity": 0,
+   "line": 13
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 18
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 15
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 19
+  },
+  {
+   "id": "RNF7030",
+   "severity": 30,
+   "line": 16
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 15
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 16
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 17
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 18
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 19
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 26
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 28
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 30
+  },
+  {
+   "id": "RNF7503",
+   "severity": 30,
+   "line": 31
+  },
+  {
+   "id": "RNF7086",
+   "severity": 0,
+   "line": 13
+  },
+  {
+   "id": "RNF2013",
+   "severity": 20,
+   "line": 13
+  },
+  {
+   "id": "RNF2016",
+   "severity": 20,
+   "line": 13
+  },
+  {
+   "id": "RNF2053",
+   "severity": 20,
+   "line": 13
+  },
+  {
+   "id": "RNF2023",
+   "severity": 30,
+   "line": 13
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 19
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 20
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 21
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 22
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 23
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 24
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 25
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 26
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 27
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 28
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 29
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 30
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 31
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 32
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 33
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 34
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 35
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 36
+  },
+  {
+   "id": "RNF0262",
+   "severity": 20,
+   "line": 37
+  },
+  {
+   "id": "RNF5014",
+   "severity": 30,
+   "line": 21
+  }
+ ],
+ "severity_summary": {
+  "total": 40,
+  "informational": 2,
+  "warning": 0,
+  "error": 22,
+  "severe": 16
+ },
+ "command_messages": [
+  {
+   "id": "RNS9308",
+   "severity": 30
+  },
+  {
+   "id": "CPC0904",
+   "severity": 0
+  },
+  {
+   "id": "RNS9310",
+   "severity": 30
+  }
+ ],
+ "status": "gap",
+ "provenance": {
+  "measured": true,
+  "ref": "raw/listing.txt (p\u00e1ginas 2-4, 7-8)",
+  "note": "40 ocurrencias = 19 RNF0262 + 5 RNF7030 + 9 RNF7503 + 4 F-spec + RNF5014 + 2 info. iNative no emite ninguna: gap total en IDs, outcome coincide (fracaso sin objeto, GENLVL=10)."
+ }
+}

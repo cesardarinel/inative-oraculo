@@ -1,0 +1,6 @@
+{
+  "host": "${ORACLE_IBM_HOST}",
+  "release": "7.5",
+  "ccsid": 37,
+  "note": "Capturado vía QSYS2.JOBLOG_INFO TABLE function + DSPJOBLOG fallback. Ver probe/conect.py"
+}

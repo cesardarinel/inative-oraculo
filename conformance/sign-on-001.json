@@ -1,0 +1,25 @@
+{
+  "id": "sign-on-001",
+  "name": "Sign On PUB400 (03-fidelidad: literales + grid + raw)",
+  "source": {},
+  "setup": [],
+  "input": [],
+  "compare": {
+    "display": true,
+    "display_literals": true,
+    "display_grid": true,
+    "screens": true,
+    "fields": true,
+    "cursor": true
+  },
+  "ignore": [
+    "cursor",
+    "job.number",
+    "job.name",
+    "timestamp",
+    "display.literals[*].color",
+    "display_raw"
+  ],
+  "transport": "5250",
+  "timeout": 15
+}

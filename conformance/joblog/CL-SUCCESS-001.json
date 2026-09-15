@@ -1,0 +1,25 @@
+{
+  "id": "CL-SUCCESS-001",
+  "name": "cl success — crtlib",
+  "source": {
+    "command": "CRTLIB LIB(QTEMP_TST1) TEXT('test')",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "CRTLIB LIB(QTEMP_TST1) TEXT('test')"
+    }
+  ]
+}

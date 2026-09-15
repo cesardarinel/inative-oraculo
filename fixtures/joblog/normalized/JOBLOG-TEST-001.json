@@ -1,0 +1,45 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "JOBLOG-TEST-001",
+    "name": "test SNDPGMMSG",
+    "language": "CL",
+    "operation": "SNDPGMMSG",
+    "category": "messages/sndpgmmsg"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "job_type": "",
+    "job_subtype": "",
+    "system_name": "${SYSTEM_NAME}",
+    "source": "CONFIG_FALLBACK"
+  },
+  "operation": {
+    "command": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+    "program": "",
+    "library": "C3S411",
+    "extra": {}
+  },
+  "result": {
+    "success": false,
+    "exit_code": 255
+  },
+  "joblog": {
+    "messages": [],
+    "initial_count": 0,
+    "final_count": 0,
+    "delta_count": 0
+  },
+  "manifest": {
+    "id": "JOBLOG-TEST-001",
+    "language": "CL",
+    "command": "SNDPGMMSG MSG('HELLO MATICA') TOPGMQ(*PRV) MSGTYPE(*INFO)",
+    "expected_result": "unknown",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T19:20:08+00:00",
+    "fixture_status": "CAPTURED"
+  }
+}

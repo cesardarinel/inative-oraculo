@@ -1,0 +1,1 @@
+{"case": "datfmt-iso", "language": "RPGLE", "success": true, "object_created": true, "max_severity": 0, "messages": [], "status": "stable", "provenance": {"measured": false, "ref": "fixtures/RPGLE/invalidos/datfmt-iso.rpgle", "note": "Regresión de la decisión ISO (FASE 6): DATFMT(*ISO) compila limpio. Pendiente confirmar messages/joblog contra IBM i real."}}

@@ -1,0 +1,50 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "MSG-WARNING-001",
+    "name": "warning message 10 severity",
+    "language": "RPGLE",
+    "operation": "CRTBNDRPG",
+    "category": "messages/warning"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "CRTBNDRPG PGM(QTEMP/WARN1) SRCSTMF('/tmp/warn1.rpgle')",
+    "program": "WARN1",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": true,
+    "exit_code": 0
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "RNS0200",
+        "message_type": "WARNING",
+        "severity": 10,
+        "message_text": "Variable WARNVAR is defined but not used.",
+        "message_second_level_text": "The variable is unused. This is a warning.",
+        "ordinal_position": 1
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 6,
+    "delta_count": 1
+  },
+  "manifest": {
+    "id": "MSG-WARNING-001",
+    "language": "RPGLE",
+    "command": "CRTBNDRPG PGM(QTEMP/WARN1) SRCSTMF('/tmp/warn1.rpgle')",
+    "expected_result": "success",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

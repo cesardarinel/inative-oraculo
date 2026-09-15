@@ -1,0 +1,27 @@
+{
+  "id": "main-001",
+  "name": "MAIN menu PUB400 (GO MAIN)",
+  "source": {},
+  "setup": [],
+  "input": [
+    { "type": "command", "value": "GO MAIN" },
+    { "type": "key", "value": "ENTER" }
+  ],
+  "compare": {
+    "display": true,
+    "display_literals": true,
+    "display_grid": true,
+    "screens": true,
+    "fields": true,
+    "cursor": true
+  },
+  "ignore": [
+    "cursor",
+    "job.number",
+    "timestamp",
+    "display.literals[*].color",
+    "display_raw"
+  ],
+  "transport": "5250",
+  "timeout": 15
+}

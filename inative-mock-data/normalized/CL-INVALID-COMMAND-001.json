@@ -1,0 +1,58 @@
+{
+  "fixture_version": 1,
+  "source": "IBM i 7.5",
+  "experiment": {
+    "id": "CL-INVALID-COMMAND-001",
+    "name": "cl invalid command",
+    "language": "CL",
+    "operation": "FOOBAR",
+    "category": "cl/command-error"
+  },
+  "job": {
+    "job_name": "${JOB_NAME}",
+    "job_user": "${JOB_USER}",
+    "job_number": "${JOB_NUMBER}",
+    "system_name": "${SYSTEM_NAME}"
+  },
+  "operation": {
+    "command": "FOOBAR PGM(QTEMP/X)",
+    "program": "",
+    "library": "QTEMP"
+  },
+  "result": {
+    "success": false,
+    "exit_code": 1
+  },
+  "joblog": {
+    "messages": [
+      {
+        "message_id": "CPF0006",
+        "message_type": "ESCAPE",
+        "severity": 30,
+        "message_text": "Errors occurred in command.",
+        "message_second_level_text": "See previous messages.",
+        "ordinal_position": 1
+      },
+      {
+        "message_id": "CPD0030",
+        "message_type": "DIAGNOSTIC",
+        "severity": 30,
+        "message_text": "Command FOOBAR not valid. Correct the command and try again.",
+        "message_second_level_text": "FOOBAR is not a known command.",
+        "ordinal_position": 2
+      }
+    ],
+    "initial_count": 5,
+    "final_count": 7,
+    "delta_count": 2
+  },
+  "manifest": {
+    "id": "CL-INVALID-COMMAND-001",
+    "language": "CL",
+    "command": "FOOBAR PGM(QTEMP/X)",
+    "expected_result": "error",
+    "ibmi_version": "7.5",
+    "captured_at": "2026-09-05T10:00:00Z",
+    "fixture_status": "REVIEWED"
+  }
+}

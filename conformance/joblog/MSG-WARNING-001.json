@@ -1,0 +1,25 @@
+{
+  "id": "MSG-WARNING-001",
+  "name": "warning message 10 severity",
+  "source": {
+    "command": "CRTBNDRPG PGM(QTEMP/WARN1) SRCSTMF('/tmp/warn1.rpgle')",
+    "program": "WARN1",
+    "library": "QTEMP"
+  },
+  "compare": {},
+  "ignore": [
+    "timestamp",
+    "job_number",
+    "job_name",
+    "system_name",
+    "message_key",
+    "job_number"
+  ],
+  "transport": "ssh",
+  "input": [
+    {
+      "type": "command",
+      "value": "CRTBNDRPG PGM(QTEMP/WARN1) SRCSTMF('/tmp/warn1.rpgle')"
+    }
+  ]
+}

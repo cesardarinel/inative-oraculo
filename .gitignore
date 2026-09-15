@@ -1,0 +1,19 @@
+binario/
+dist/
+*.exe
+*.test
+*.out
+reportes/report.md
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+
+# credenciales / conexión IBM i (nunca versionar)
+.env
+oracle.env
+*.pem
+*key*
+
+# snapshots generados en tiempo de ejecución
+probe/snapshots/
